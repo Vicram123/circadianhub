@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- This page must be linked from the footer of every page on circadianhub.com to comply with Google AdSense policies. -->
+<meta charset="UTF-8">
+<meta name="google-adsense-account" content="ca-pub-5810682779564104">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+<title>Privacy Policy | CircadianHub</title>
+<link rel="canonical" href="https://circadianhub.com/privacy.html">
+<meta name="description" content="How CircadianHub handles data, cookies and Google AdSense advertising, and how to control your choices.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://circadianhub.com/privacy.html">
+<meta property="og:title" content="Privacy Policy | CircadianHub">
+<meta property="og:description" content="Read the official data transparency, cookie usage policy, and third-party ad compliance standards for CircadianHub.">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://circadianhub.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="CircadianHub: free sleep cycle, nap and jet lag calculators">
+<style>
+/* ===== THEME TOKENS ===== */
+:root{--primary:#4F46E5;--secondary:#7C3AED;--bg:#F9FAFB;--card:#FFFFFF;--text:#111827;--muted:#6B7280;--border:#E5E7EB;--good:#10B981;--warn:#F59E0B;--soft:#EEF2FF}
+/* Themes: light (default), dark, sepia, midnight, forest. Dark ones also set color-scheme for native pickers. */
+:root[data-theme="dark"]{--bg:#111827;--card:#1F2937;--text:#F9FAFB;--muted:#9CA3AF;--border:#374151;--soft:#312E81;color-scheme:dark}
+:root[data-theme="midnight"]{--primary:#818CF8;--secondary:#A78BFA;--bg:#0B1020;--card:#141B34;--text:#E8ECFF;--muted:#95A0C8;--border:#27305A;--soft:#1E2650;color-scheme:dark}
+:root[data-theme="sepia"]{--primary:#B45309;--secondary:#92400E;--bg:#F4ECD8;--card:#FBF6E9;--text:#3B2F1E;--muted:#7A6A52;--border:#E2D5B5;--soft:#F1E6C8}
+:root[data-theme="forest"]{--primary:#047857;--secondary:#0F766E;--bg:#F1F7F2;--card:#FFFFFF;--text:#14261B;--muted:#5E7A67;--border:#D5E4D9;--soft:#E3F1E7}
+/* ===== BASE ===== */
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.5;padding:16px}
+.card{max-width:700px;margin:16px auto;background:var(--card);border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,.08);position:relative}
+h1{font-size:1.5rem;margin:0;background:linear-gradient(90deg,var(--primary),var(--secondary));-webkit-background-clip:text;background-clip:text;color:transparent}
+.top{display:flex;justify-content:flex-end;gap:7px;margin-bottom:12px}
+.sw{border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:10px;padding:7px 9px;cursor:pointer;font:inherit;line-height:1.2;transition:transform .15s}
+.sw:hover{transform:scale(1.08)}
+.sw[aria-pressed="true"]{outline:2px solid var(--primary);outline-offset:2px}
+@media(pointer:coarse){.sw{min-width:42px;min-height:42px}}
+.tabs[data-more="1"]{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 36px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 36px),transparent)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.site{max-width:700px;margin:0 auto;padding:8px 0 0;text-align:center}.site a{display:inline-block}.site img{display:block;width:min(320px,80vw);height:auto}.site a.ch-logo-link{display:inline-flex;align-items:center;gap:10px;text-decoration:none;padding:6px 0}.ch-logo-icon{flex:none;width:30px;height:30px;border-radius:50%;background:transparent;box-shadow:inset -9px -5px 0 0 var(--primary);transform:rotate(-15deg)}.ch-logo-text{font-size:clamp(1.5rem,6vw,1.9rem);font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--text)}.ch-logo-text span{color:var(--primary)}.logo-dark{display:none!important}:root[data-theme="dark"] .logo-light,:root[data-theme="midnight"] .logo-light{display:none!important}:root[data-theme="dark"] .logo-dark,:root[data-theme="midnight"] .logo-dark{display:block!important}
+.menu{max-width:700px;margin:10px auto 0;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}.menu a{border:1px solid var(--border);background:var(--card);color:var(--text);padding:8px 14px;border-radius:999px;font-size:.9rem;text-decoration:none}.menu a:hover{border-color:var(--primary)}.menu a.cur{background:linear-gradient(90deg,var(--primary),var(--secondary));color:#fff;border-color:transparent}
+.foot{max-width:700px;margin:0 auto 24px;text-align:center;color:var(--muted);font-size:.85rem}.foot a{color:var(--primary);font-weight:600}.foot p{margin:6px 0 0}
+@media(max-width:480px){.card{padding:16px}}
+
+/* ===== PRIVACY PAGE ===== */
+.top{justify-content:space-between;align-items:center;flex-wrap:wrap}
+.sws{display:flex;gap:7px}
+.back{color:var(--primary);font-weight:600;text-decoration:none;font-size:.9rem}
+h1{font-size:1.8rem;line-height:1.2}
+.date{color:var(--muted);font-size:.85rem;margin:6px 0 4px}
+.sub{color:var(--muted);margin:0 0 4px}
+a{color:var(--primary)}
+.glance{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0 8px}
+.glance div{background:var(--soft);border-radius:10px;padding:14px}
+.glance b{display:block}.glance span{color:var(--muted);font-size:.9rem}
+section{border-top:1px solid var(--border);padding:20px 0 8px;margin-top:16px}
+h2{font-size:1.1rem;margin:0 0 8px;display:flex;gap:10px;align-items:baseline}
+h2 .n{font-size:.75rem;color:var(--muted);font-weight:600}
+p{margin:0 0 12px}ul{margin:0 0 12px;padding-left:20px}li{margin-bottom:4px}
+.foot nav{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:6px}
+.linkbtn{background:none;border:0;padding:0;font:inherit;font-weight:600;color:var(--primary);cursor:pointer}
+#consent{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--card);border-top:1px solid var(--border);box-shadow:0 -2px 14px rgba(0,0,0,.08);padding:16px;display:none}
+#consent.show{display:block}
+#consent .in{max-width:700px;margin:0 auto;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+#consent p{flex:1 1 300px;margin:0;font-size:.9rem}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{font:inherit;font-size:.9rem;font-weight:600;padding:10px 16px;border-radius:8px;border:1px solid transparent;cursor:pointer;color:#fff;background:linear-gradient(90deg,var(--primary),var(--secondary))}
+.btn.alt{background:transparent;color:var(--text);border-color:var(--border)}
+@media(max-width:600px){.glance{grid-template-columns:1fr}.btns{width:100%}.btn{flex:1}}
+</style>
+</head>
+<body>
+<header class="site"><a href="/" class="ch-logo-link" aria-label="CircadianHub Homepage">
+    <!-- Pure CSS Shape Visual Anchor -->
+    <div class="ch-logo-icon" aria-hidden="true"></div>
+    <!-- Styled Brand Typography Text -->
+    <span class="ch-logo-text">Circadian<span>Hub</span></span>
+</a></header>
+<nav class="menu" aria-label="Site"><a href="index.html">🌙 CircadianHub</a><a href="jetlag.html">✈️ Jet Lag Planner</a><a href="blog.html">📖 Blog</a><a href="about.html">About</a><a class="cur" href="privacy.html" aria-current="page">Privacy</a></nav>
+<main class="card">
+  <div class="top"><a class="back" href="index.html">&larr; Back to calculator</a><div class="sws" role="group" aria-label="Color theme"><button type="button" class="sw" data-theme="light" aria-label="Light theme" aria-pressed="false" title="Light">☀</button><button type="button" class="sw" data-theme="dark" aria-label="Dark theme" aria-pressed="false" title="Dark">◐</button><button type="button" class="sw" data-theme="sepia" aria-label="Sepia theme" aria-pressed="false" title="Sepia">◑</button><button type="button" class="sw" data-theme="midnight" aria-label="Midnight theme" aria-pressed="false" title="Midnight">✦</button><button type="button" class="sw" data-theme="forest" aria-label="Forest theme" aria-pressed="false" title="Forest">●</button></div></div>
+  <h1>Privacy Policy</h1>
+  <p class="date">Last updated: September 28, 2026</p>
+  <p class="sub">A plain-language summary of what happens to your data on circadianhub.com. The full policy follows.</p>
+  <div class="glance">
+    <div><b>Calculator</b><span>Your times stay in your browser. We never receive them.</span></div>
+    <div><b>Ads</b><span>Google AdSense may use cookies, only with your consent where required.</span></div>
+    <div><b>Your choices</b><span>Accept or reject at any time using "Cookie settings" below.</span></div>
+  </div>
+
+  <section><h2 ><span class="n">01</span>Introduction</h2>
+    <p>CircadianHub (circadianhub.com, "we", "the Site") is a free sleep calculator offering bedtime, wake-up, nap and shift work planning. This policy explains what information is processed when you use the Site, and the choices you have. The Site serves visitors worldwide, including the EU/EEA, the UK and Switzerland.</p></section>
+
+  <section><h2 ><span class="n">02</span>Information We Collect</h2>
+    <p>The calculators and the Jet Lag Planner run entirely in your browser. The times, cities and options you enter are not sent to our servers. We do not ask you to create an account and we do not collect your name or email through the calculator.</p>
+    <p>The Site stores a few small items in your browser's local storage: your color theme, your cookie choice, and, if you use the Jet Lag Planner, the trip details you last entered so the form is filled in when you come back. These stay on your device and are never sent to us; you can clear them with the Planner's Reset button or by clearing your browser's site data. Our host may keep standard server logs (such as IP address, browser type and request time) for security and operation.</p>
+    <p>If you consent to advertising, Google and its partners may collect your IP address, cookie identifiers, device information and approximate location, as described below.</p></section>
+
+  <section><h2 ><span class="n">03</span>Cookies and Web Beacons</h2>
+    <p>Third parties, including Google, may place and read cookies on your browser, or use web beacons to collect information as a result of ad serving on this website.</p>
+    <p>Strictly necessary storage (your theme and cookie choice) does not require consent. Saved Jet Lag Planner inputs are stored only on your device at your own request and are used solely to pre-fill the form. Advertising cookies are used only if you accept them where consent is required.</p></section>
+
+  <section><h2 ><span class="n">04</span>Google AdSense and Third-Party Advertising</h2>
+    <p>This website uses Google AdSense, a third-party advertising service provided by Google. Google uses cookies (including the DoubleClick cookie) to serve ads to you based on your visit to this website and other websites on the Internet. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to this site and/or other sites on the Internet. You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" rel="noopener">Google Ads Settings</a> (https://www.google.com/settings/ads). Alternatively, you can opt out of some third-party vendors' use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info" rel="noopener">www.aboutads.info</a>.</p></section>
+
+  <section><h2 ><span class="n">05</span>How We Use Your Information</h2>
+    <ul>
+      <li>To run and secure the Site, and remember your theme, cookie choice and Jet Lag Planner entries on your device.</li>
+      <li>To show ads that keep the Site free, personalised only where you have agreed.</li>
+      <li>To measure ads and prevent fraud (carried out by Google and its partners).</li>
+    </ul>
+    <p>Our legal bases under the GDPR are legitimate interests (operating and securing the Site) and your consent (advertising cookies).</p></section>
+
+  <section><h2 ><span class="n">06</span>Your Rights (GDPR / CCPA)</h2>
+    <p>If you are in the EU/EEA or UK, you have the following rights:</p>
+    <ul>
+      <li>Right to access your personal data</li>
+      <li>Right to rectification</li>
+      <li>Right to erasure ("right to be forgotten")</li>
+      <li>Right to restrict processing</li>
+      <li>Right to data portability</li>
+      <li>Right to object to processing</li>
+      <li>Right to withdraw consent at any time</li>
+      <li>Right to lodge a complaint with a supervisory authority (in Finland, the Office of the Data Protection Ombudsman / Tietosuojavaltuutetun toimisto, tietosuoja.fi)</li>
+    </ul>
+    <p>California residents have rights under the CCPA/CPRA, including to know what personal information is collected, to request deletion, and to opt out of the sale or sharing of personal information. We do not sell personal information ourselves; ad-related sharing happens through Google's services, and you can opt out using the links in section 07. Because we hold little personal data, most requests about ad data are handled by Google. Contact us using the details in section 12 and we will help.</p></section>
+
+  <section><h2 ><span class="n">07</span>How to Opt Out of Personalized Ads</h2>
+    <ul>
+      <li>Google Ads Settings: <a href="https://www.google.com/settings/ads" rel="noopener">https://www.google.com/settings/ads</a></li>
+      <li>About Ads (DAA): <a href="https://www.aboutads.info" rel="noopener">https://www.aboutads.info</a></li>
+      <li>Network Advertising Initiative: <a href="https://www.networkadvertising.org/choices" rel="noopener">https://www.networkadvertising.org/choices</a></li>
+    </ul>
+    <p>You can also reject non-essential cookies with "Cookie settings" in the footer, or block cookies in your browser settings.</p></section>
+
+  <section><h2 ><span class="n">08</span>Third-Party Vendors and Their Privacy Policies</h2>
+    <p>Google and its advertising partners process data under their own policies. See <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">How Google uses information from sites that use its services</a> and <a href="https://policies.google.com/privacy" rel="noopener">Google's Privacy Policy</a>. We do not control third-party cookies, and you should review each vendor's policy.</p></section>
+
+  <section><h2 ><span class="n">09</span>Data Retention</h2>
+    <p>Local storage items stay in your browser until you clear them. Server logs are kept only as long as our host retains them for security purposes. Retention of advertising data is governed by Google's policies.</p></section>
+
+  <section><h2 ><span class="n">10</span>Children's Privacy</h2>
+    <p>The Site is not directed at children under 13 (or under 16 where local law sets a higher age), and we do not knowingly collect their personal data. If you believe a child has provided data, contact us and we will act on it.</p></section>
+
+  <section><h2 ><span class="n">11</span>Changes to This Policy</h2>
+    <p>We may update this policy from time to time. The date at the top shows when it last changed. Material changes will be reflected on this page.</p></section>
+
+  <section><h2 ><span class="n">12</span>Contact Us</h2>
+    <p>Questions or requests about privacy: <a href="mailto:contact@circadianhub.com">contact@circadianhub.com</a></p></section>
+</main>
+
+<footer class="foot">
+  <nav>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="jetlag.html">Jet Lag Planner</a>
+    <button class="linkbtn" id="cookieSettings" type="button">Cookie settings</button>
+  </nav>
+  <p>&copy; circadianhub.com</p>
+</footer>
+
+<!-- ===== COOKIE CONSENT BANNER ===== -->
+<div id="consent" role="dialog" aria-label="Cookie consent">
+  <div class="in">
+    <p>We use cookies for advertising if you agree. You can change your choice any time. See our <a href="privacy.html">Privacy Policy</a>.</p>
+    <div class="btns">
+      <button class="btn alt" id="rejectBtn" type="button">Reject Non-Essential</button>
+      <button class="btn" id="acceptBtn" type="button">Accept All</button>
+    </div>
+  </div>
+</div>
+
+<!--
+  ===== USING A CERTIFIED CMP INSTEAD OF THE CUSTOM BANNER =====
+  For AdSense ads shown to visitors in the EEA, UK and Switzerland, Google requires a Google-certified
+  CMP (for example Google's free one in AdSense > Privacy & messaging, or CookieScript, CookieHub, Complianz).
+  To switch: (1) delete the <div id="consent"> block above and the consent script below,
+  (2) paste your CMP's script tag right here, as the first script on the page, before any ad code,
+  (3) keep the "Cookie settings" footer button but point it at your CMP's reopen function.
+-->
+<!-- PASTE CMP SCRIPT HERE -->
+
+<script>
+/* ===== THEMES: same five themes and same saved choice as the calculator page ===== */
+const THEMES = ['light','dark','sepia','midnight','forest'];
+function setTheme(t){
+  if (!THEMES.includes(t)) t = 'light';
+  document.documentElement.dataset.theme = t;
+  document.querySelectorAll('.sw').forEach(b => b.setAttribute('aria-pressed', b.dataset.theme === t));
+  try { localStorage.setItem('sleepcalc-theme', t); } catch(e){}
+}
+let saved = null; try { saved = localStorage.getItem('sleepcalc-theme'); } catch(e){}
+setTheme(THEMES.includes(saved) ? saved : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+document.querySelectorAll('.sw').forEach(b => b.addEventListener('click', () => setTheme(b.dataset.theme)));
+
+/* ===== ADSENSE PLACEHOLDER: paste your real AdSense code inside this function ===== */
+window.loadAdSense = function(){
+  if (window.__adsLoaded) return; window.__adsLoaded = true;
+  var s = document.createElement('script'); s.async = true; s.crossOrigin = 'anonymous';
+  s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5810682779564104';
+  document.head.appendChild(s);
+};
+
+/* ===== CONSENT LOGIC ===== */
+(function(){
+  var KEY='bedtimecalc-consent', box=document.getElementById('consent');
+  function get(){try{return localStorage.getItem(KEY)}catch(e){return null}}
+  function set(v){try{localStorage.setItem(KEY,v)}catch(e){}}
+  function pad(){document.body.style.paddingBottom=box.classList.contains('show')?(box.offsetHeight+24)+'px':''}
+  function show(){box.classList.add('show');pad()}
+  function hide(){box.classList.remove('show');pad()}
+  addEventListener('resize',pad);
+  document.getElementById('acceptBtn').onclick=function(){set('all');hide();window.loadAdSense()};
+  document.getElementById('rejectBtn').onclick=function(){set('essential');hide()}; /* ads are NOT loaded */
+  document.getElementById('cookieSettings').onclick=show;
+  var c=get(); if(c==='all') window.loadAdSense(); else if(!c || location.hash==='#cookie-settings') show();
+})();
+</script>
+</body>
+</html>

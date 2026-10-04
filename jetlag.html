@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="google-adsense-account" content="ca-pub-5810682779564104">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jet Lag Planner — Free Travel Sleep Schedule Calculator</title>
+<meta name="description" content="Free jet lag planner. Enter your flight details and get a personalized light, sleep, meal, and caffeine schedule to help adjust to a new time zone.">
+<meta name="theme-color" content="#0F172A">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Jet Lag Planner — Free Travel Sleep Schedule Calculator">
+<meta property="og:description" content="Plan sleep, light, meals, and caffeine around your next long-distance flight.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://circadianhub.com/jetlag.html">
+<meta property="og:image" content="https://circadianhub.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="CircadianHub: free sleep cycle, nap and jet lag calculators">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://circadianhub.com/jetlag.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+<style>
+:root{--primary:#4F46E5;--secondary:#7C3AED;--bg:#F9FAFB;--card:#FFFFFF;--text:#111827;--muted:#6B7280;--border:#E5E7EB;--good:#10B981;--warn:#F59E0B;--soft:#EEF2FF;--danger:#B4232F;
+--surface:var(--card);--surface2:var(--soft);--primary2:var(--secondary);--radius:12px;--shadow:0 4px 20px rgba(0,0,0,.08)}
+:root[data-theme="dark"]{--bg:#111827;--card:#1F2937;--text:#F9FAFB;--muted:#9CA3AF;--border:#374151;--soft:#312E81;--danger:#F87171;color-scheme:dark}
+:root[data-theme="midnight"]{--primary:#818CF8;--secondary:#A78BFA;--bg:#0B1020;--card:#141B34;--text:#E8ECFF;--muted:#95A0C8;--border:#27305A;--soft:#1E2650;--danger:#F87171;color-scheme:dark}
+:root[data-theme="sepia"]{--primary:#B45309;--secondary:#92400E;--bg:#F4ECD8;--card:#FBF6E9;--text:#3B2F1E;--muted:#7A6A52;--border:#E2D5B5;--soft:#F1E6C8}
+:root[data-theme="forest"]{--primary:#047857;--secondary:#0F766E;--bg:#F1F7F2;--card:#FFFFFF;--text:#14261B;--muted:#5E7A67;--border:#D5E4D9;--soft:#E3F1E7}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.5;padding:16px}
+a{color:var(--primary)}
+.page{max-width:700px;margin:16px auto;background:var(--card);border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,.08);position:relative}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.site{max-width:700px;margin:0 auto;padding:8px 0 0;text-align:center}.site a{display:inline-block}.site img{display:block;width:min(320px,80vw);height:auto}.site a.ch-logo-link{display:inline-flex;align-items:center;gap:10px;text-decoration:none;padding:6px 0}.ch-logo-icon{flex:none;width:30px;height:30px;border-radius:50%;background:transparent;box-shadow:inset -9px -5px 0 0 var(--primary);transform:rotate(-15deg)}.ch-logo-text{font-size:clamp(1.5rem,6vw,1.9rem);font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--text)}.ch-logo-text span{color:var(--primary)}.logo-dark{display:none!important}:root[data-theme="dark"] .logo-light,:root[data-theme="midnight"] .logo-light{display:none!important}:root[data-theme="dark"] .logo-dark,:root[data-theme="midnight"] .logo-dark{display:block!important}
+.top{display:flex;justify-content:flex-end;gap:7px;margin-bottom:12px}
+.sw{border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:10px;padding:7px 9px;cursor:pointer;font:inherit;line-height:1.2;transition:transform .15s}
+.sw:hover{transform:scale(1.08)}
+.sw[aria-pressed="true"]{outline:2px solid var(--primary);outline-offset:2px}
+@media(pointer:coarse){.sw{min-width:42px;min-height:42px}}
+.tabs[data-more="1"]{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 36px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 36px),transparent)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:16px;-webkit-overflow-scrolling:touch}
+.tab{flex:0 0 auto;display:inline-flex;align-items:center;border:1px solid var(--border);background:var(--bg);color:var(--text);padding:8px 14px;border-radius:999px;cursor:pointer;font-size:.9rem;white-space:nowrap;text-decoration:none}
+.tab:hover{text-decoration:none;border-color:var(--primary)}
+.tab.active{background:linear-gradient(90deg,var(--primary),var(--secondary));color:#fff;border-color:transparent}
+.lede-h{font-size:1.15rem;margin:0 0 4px}
+.lede{color:var(--muted);font-size:.9rem;margin:0 0 16px}
+.foot{max-width:700px;margin:0 auto 24px;text-align:center;color:var(--muted);font-size:.85rem}.foot a{color:var(--primary);font-weight:600}.foot p{margin:6px 0 0}
+.foot nav{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.card{background:transparent;margin:20px 0}
+h2{font-size:1.15rem;margin:0 0 12px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.field label{display:block;font-weight:600;font-size:.9rem;margin-bottom:6px}
+input,select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font:inherit;outline:none}
+input:focus,select:focus{border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 18%,transparent)}
+.hint{font-size:.78rem;color:var(--muted);margin-top:5px}
+.city-wrap{position:relative}
+.suggestions{position:absolute;z-index:10;left:0;right:0;top:calc(100% + 4px);background:var(--surface);border:1px solid var(--border);border-radius:11px;box-shadow:var(--shadow);max-height:230px;overflow:auto}
+.suggestions button{display:block;width:100%;padding:10px 12px;border:0;background:none;color:var(--text);text-align:left;cursor:pointer}
+.suggestions button:hover,.suggestions button:focus{background:var(--surface2)}
+.choice-row{display:flex;gap:10px;flex-wrap:wrap}
+.choice{flex:1;min-width:130px;position:relative}
+.choice input{position:absolute;opacity:0}
+.choice input:focus-visible+span{outline:2px solid var(--primary);outline-offset:2px}
+.choice span{display:block;border:1px solid var(--border);border-radius:8px;padding:11px 13px;text-align:center;font-weight:700;cursor:pointer}
+.choice input:checked+span{border-color:var(--primary);background:var(--soft);color:var(--primary)}
+.actions{display:flex;gap:10px;align-items:center;margin-top:20px}
+.primary{border:0;background:linear-gradient(90deg,var(--primary),var(--secondary));color:#fff;border-radius:999px;padding:11px 20px;font:inherit;font-weight:700;cursor:pointer}
+.primary:hover{filter:brightness(1.08)}
+.secondary{border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:999px;padding:9px 16px;font:inherit;font-weight:600;font-size:.9rem;cursor:pointer}
+.error{display:none;color:var(--danger);background:color-mix(in srgb,var(--danger) 8%,var(--surface));border:1px solid color-mix(in srgb,var(--danger) 25%,var(--border));padding:11px 13px;border-radius:11px;margin-top:14px}
+#results{display:none}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat{background:var(--soft);border-radius:12px;padding:15px}
+.stat strong{display:block;font-size:1.12rem}
+.stat small{color:var(--muted)}
+.note{font-size:.88rem;color:var(--muted);margin:15px 0 0}
+.timeline{position:relative;margin-top:22px}
+.day{border:1px solid var(--border);border-radius:12px;margin:14px 0;overflow:hidden;background:var(--surface)}
+.day-head{padding:15px 18px;background:var(--surface2);display:flex;justify-content:space-between;gap:10px;align-items:center}
+.day-head h3{margin:0;font-size:1rem}
+.day-head span{font-size:.82rem;color:var(--muted)}
+.event{display:grid;grid-template-columns:92px 38px 1fr;gap:10px;align-items:start;padding:14px 18px;border-top:1px solid var(--border)}
+.event:first-child{border-top:0}
+.event-time{font-weight:800;font-variant-numeric:tabular-nums}
+.event-icon{font-size:1.25rem}
+.event-title{font-weight:800}
+.event-detail{color:var(--muted);font-size:.9rem;margin-top:2px}
+.badge{display:inline-block;font-size:.72rem;padding:3px 7px;border-radius:99px;background:var(--surface2);color:var(--muted);margin-left:6px}
+.warning{padding:13px 15px;border-left:4px solid var(--warn);background:color-mix(in srgb,var(--warn) 8%,var(--surface));border-radius:8px;color:var(--text);font-size:.88rem}
+.seo{margin:24px 0 0;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.9rem}.seo h2{font-size:1rem;margin:0 0 8px;color:var(--text)}.seo h2{margin-top:16px}.seo h2:first-child{margin-top:0}.seo h3{font-size:.95rem;margin:14px 0 4px;color:var(--text)}.seo ul{margin:0 0 8px;padding-left:20px}.seo a{color:var(--primary);font-weight:600}.seo p{margin:0 0 8px}
+@media(max-width:700px){
+  .grid,.summary{grid-template-columns:1fr}
+  .page{padding:16px}
+  .event{grid-template-columns:72px 30px 1fr;padding:13px 12px}
+  .topbar{align-items:flex-start;flex-wrap:wrap}
+}
+
+.result-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.event-do-not-sleep{background:color-mix(in srgb,var(--danger) 7%,var(--surface));border-left:4px solid var(--danger)}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--text);color:var(--surface);padding:10px 15px;border-radius:10px;box-shadow:var(--shadow);z-index:30}
+@media(min-width:701px){.summary{grid-template-columns:repeat(2,1fr)}}
+
+/* NEW: form extras, progress, info icons, notes */
+.check{display:flex;gap:9px;align-items:center;font-weight:400;font-size:.9rem;margin:0 0 14px;cursor:pointer}.check input{width:18px;height:18px;accent-color:var(--primary)}
+.extra{margin-top:16px}.sub{display:none;margin-top:14px;padding:14px;border:1px dashed var(--border);border-radius:12px}
+.progress-wrap{margin-top:16px}.progress-label{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:6px}
+.progress{height:10px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.progress>span{display:block;height:100%;background:var(--primary);border-radius:99px;transition:width .3s ease}
+.info{display:inline-block;margin-top:4px;font-size:.8rem;color:var(--muted)}.info summary{cursor:pointer;list-style:none}
+.notes .warning{margin:10px 0}.src{font-size:.82rem;color:var(--muted);margin-top:14px}.src ul{margin:4px 0 0;padding-left:18px}
+#returnBox{margin-top:18px}#returnSchedule{margin-top:8px}
+
+/* Printable card */
+.print-only{display:none}
+@media print{
+  @page{margin:12mm}
+  html,body{background:#fff!important;color:#000!important}
+  .site,.foot,.top,.tabs,.lede-h,.lede,.seo,#tripCard,.toast{display:none!important}
+  .page{max-width:none!important;margin:0!important;padding:0!important;box-shadow:none!important;background:#fff!important}
+  #results{display:block!important}
+  #results>*:not(#printCard){display:none!important}
+  #printCard{display:block!important;font:11px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;color:#000;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .pc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;border-bottom:2px solid #000;padding-bottom:8px;margin-bottom:10px}
+  .pc-head h2{font-size:20px;margin:0}.pc-route{margin:2px 0 0;font-size:13px;font-weight:700}
+  .pc-brand{text-align:right;font-weight:800}.pc-brand small{font-weight:400;color:#444}
+  .pc-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:8px}
+  .pc-stat{border:1px solid #999;border-radius:6px;padding:5px 7px;background:#f2f2f2}
+  .pc-stat b{display:block;font-size:11.5px}.pc-stat small{color:#444;font-size:9.5px}
+  .pc-meta{margin:2px 0;color:#222}
+  .pc-note{border-left:3px solid #000;padding:3px 8px;margin:5px 0;background:#f7f7f7}
+  .pc-day{break-inside:avoid;margin:9px 0;border:1px solid #999;border-radius:6px;overflow:hidden}
+  .pc-day h4{margin:0;padding:5px 8px;background:#e6e6e6;font-size:12px;display:flex;justify-content:space-between;gap:8px}
+  .pc-day h4 em{font-weight:400;font-style:normal;color:#333}
+  .pc-day table{width:100%;border-collapse:collapse}
+  .pc-day td{padding:4px 8px;vertical-align:top;border-top:1px solid #ccc}
+  .pc-day tr:first-child td{border-top:0}
+  .pc-t{width:26%;font-weight:700;font-variant-numeric:tabular-nums}.pc-i{width:22px;text-align:center}
+  .pc-day td span{color:#333;font-size:10px}
+  .pc-sec{font-size:14px;margin:14px 0 2px;border-bottom:1px solid #000;padding-bottom:2px;break-after:avoid}
+  .pc-safe{border:1px solid #000;border-radius:6px;padding:6px 8px;margin-top:12px;font-size:10px;break-inside:avoid}
+  .pc-foot{margin-top:8px;text-align:center;color:#444;font-size:9.5px}
+}
+</style>
+</head>
+<body>
+<header class="site"><a href="index.html" class="ch-logo-link" aria-label="CircadianHub Homepage">
+    <!-- Pure CSS Shape Visual Anchor -->
+    <div class="ch-logo-icon" aria-hidden="true"></div>
+    <!-- Styled Brand Typography Text -->
+    <span class="ch-logo-text">Circadian<span>Hub</span></span>
+</a></header>
+
+<main class="page">
+<h1 class="sr-only">Jet Lag Planner</h1>
+<div class="top" role="group" aria-label="Color theme"><button type="button" class="sw" data-theme="light" aria-label="Light theme" aria-pressed="false" title="Light">☀</button><button type="button" class="sw" data-theme="dark" aria-label="Dark theme" aria-pressed="false" title="Dark">◐</button><button type="button" class="sw" data-theme="sepia" aria-label="Sepia theme" aria-pressed="false" title="Sepia">◑</button><button type="button" class="sw" data-theme="midnight" aria-label="Midnight theme" aria-pressed="false" title="Midnight">✦</button><button type="button" class="sw" data-theme="forest" aria-label="Forest theme" aria-pressed="false" title="Forest">●</button></div>
+<nav class="tabs" aria-label="Calculator modes">
+<a class="tab" href="index.html#bed">🌙 Bedtime</a>
+<a class="tab" href="index.html#wake">☀️ Wake-Up</a>
+<a class="tab" href="index.html#nap">⏰ Nap Planner</a>
+<a class="tab" href="index.html#shift">🏥 Shift Worker</a>
+<a class="tab active" href="jetlag.html" aria-current="page">✈️ Jet Lag Planner</a>
+</nav>
+<h2 class="lede-h">✈️ Jet Lag Planner</h2>
+<p class="lede">Plan sleep, light, meals, and caffeine around a long-distance flight. The schedule is an educational planning aid, not medical advice.</p>
+
+<section id="tripCard" aria-labelledby="trip-heading">
+<h2 id="trip-heading" class="sr-only">Your trip</h2>
+<form id="planner">
+<label class="check"><input type="checkbox" id="planReturn"> Plan return trip as well</label>
+<div class="grid">
+  <div class="field city-wrap">
+    <label for="departureCity">Departure city</label>
+    <input id="departureCity" autocomplete="off" placeholder="e.g. Helsinki" required>
+    <div class="suggestions" id="depSuggestions" hidden></div>
+  </div>
+  <div class="field city-wrap">
+    <label for="arrivalCity">Arrival city</label>
+    <input id="arrivalCity" autocomplete="off" placeholder="e.g. Tokyo" required>
+    <div class="suggestions" id="arrSuggestions" hidden></div>
+  </div>
+  <div class="field"><label for="departureDate">Departure date</label><input id="departureDate" type="date" required></div>
+  <div class="field"><label for="departureTime">Departure time</label><input id="departureTime" type="time" value="10:00" required></div>
+  <div class="field">
+    <label>Flight duration</label>
+    <div style="display:flex;gap:8px">
+      <input id="flightHours" type="number" min="0" max="30" value="8" required aria-label="Flight hours">
+      <input id="flightMinutes" type="number" min="0" max="59" value="0" required aria-label="Flight minutes">
+    </div>
+    <div class="hint">Hours and minutes</div>
+  </div>
+  <div class="field"><label for="bedtime">Usual bedtime at home</label><input id="bedtime" type="time" value="23:00" required></div>
+  <div class="field"><label for="waketime">Usual wake time at home</label><input id="waketime" type="time" value="07:00" required></div>
+</div>
+<div class="sub" id="returnFields"><div class="grid">
+  <div class="field"><label for="retDate">Return departure date</label><input id="retDate" type="date"></div>
+  <div class="field"><label for="retTime">Return departure time</label><input id="retTime" type="time" value="10:00"></div>
+  <div class="field"><label>Return flight duration</label><div style="display:flex;gap:8px"><input id="retH" type="number" min="0" max="30" value="8" aria-label="Return flight hours"><input id="retM" type="number" min="0" max="59" value="0" aria-label="Return flight minutes"></div><div class="hint">Hours and minutes</div></div>
+</div></div>
+<div class="grid extra">
+  <div class="field"><label>Your chronotype</label><div class="choice-row">
+    <label class="choice"><input type="radio" name="chrono" value="morning"><span>Morning person</span></label>
+    <label class="choice"><input type="radio" name="chrono" value="evening"><span>Evening person</span></label>
+    <label class="choice"><input type="radio" name="chrono" value="neutral" checked><span>In between</span></label></div></div>
+  <div class="field"><label for="age">Age (optional)</label><input id="age" type="number" min="1" max="120"></div>
+  <div class="field"><label for="tripLen">Trip length in days (optional)</label><input id="tripLen" type="number" min="1"></div>
+</div>
+<label class="check extra"><input type="checkbox" id="medFlag"> I am pregnant, breastfeeding, or taking medication that affects sleep or circadian rhythm</label>
+<div class="actions">
+  <button class="primary" type="submit">Generate my plan</button>
+  <button class="secondary" type="button" id="resetBtn">Reset</button>
+</div>
+<div class="error" id="error" role="alert"></div>
+</form>
+</section>
+
+<section id="results" aria-live="polite">
+<div class="card">
+<h2>Your trip summary</h2>
+<div class="summary">
+  <div class="stat"><strong id="summaryRoute">—</strong><small>Route and local time difference</small></div>
+  <div class="stat"><strong id="summaryDirection">—</strong><small>Clock adjustment</small></div>
+  <div class="stat"><strong id="summaryDays">—</strong><small>Approximate adjustment window</small></div>
+  <div class="stat"><strong id="summaryZones">—</strong><small>Time zones crossed</small></div>
+</div>
+  <p class="note" id="strategy"></p><p class="note" id="returnSummary"></p>
+  <div class="progress-wrap">
+    <div class="progress-label"><strong>Estimated adjustment progress</strong><span id="progressText">0%</span></div>
+    <div class="progress" id="progressTrack" role="progressbar" aria-label="Estimated adjustment progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progressBar" style="width:0%"></span></div>
+    <div class="hint" id="progressHint">Estimated adjustment progress based on a typical traveler.</div>
+  </div>
+</div>
+<div class="result-actions">
+  <select id="copyFmt" aria-label="Copy plan" style="width:auto"><option value="">Copy plan…</option><option value="text">Copy as plain text</option><option value="md">Copy as Markdown</option><option value="compact">Copy as compact summary</option></select>
+  <button class="secondary" type="button" id="emailBtn">Email this plan</button>
+  <button class="secondary" type="button" id="shareBtn">Copy share link</button>
+  <button class="secondary" type="button" id="printBtn">Print plan</button>
+  <button class="secondary" type="button" id="icsBtn">Download calendar (.ics)</button>
+</div>
+<p class="hint" id="icsNote">Calendar file: flight departure and arrival are exact moments. Plan items use floating local time, so they appear at the clock time shown for that day, in whatever time zone your calendar is set to. Until you land, they may look offset from the flight events.</p>
+<p class="note" id="arrivalNote"></p>
+<div class="notes" id="planNotes"></div>
+<div id="schedule"></div>
+<div id="returnBox" hidden><button class="secondary" type="button" id="toggleReturn">Show return plan</button><div id="returnSchedule" hidden></div></div>
+<div class="card">
+<div class="warning"><strong>Safety note:</strong> This planner uses general circadian principles. Light timing can be inappropriate for some conditions or medications. Do not use the melatonin suggestion as a dose recommendation; ask a doctor or pharmacist about whether melatonin is appropriate for you. If you have a sleep disorder, are pregnant, take medicines that interact with light or melatonin, or have another medical condition, get individualized advice.</div>
+</div>
+<div class="src"><strong>Based on</strong><ul>
+<li><a href="https://www.sleepfoundation.org" target="_blank" rel="noopener">Circadian rhythm research — National Sleep Foundation</a></li>
+<li><a href="https://healthysleep.med.harvard.edu" target="_blank" rel="noopener">Light and melatonin timing — Harvard Medical School Division of Sleep Medicine</a></li>
+<li><a href="https://www.asma.org" target="_blank" rel="noopener">Jet lag mitigation strategies — Aerospace Medical Association</a></li></ul></div>
+<div id="printCard" class="print-only" aria-hidden="true"></div>
+</section>
+
+<section class="seo">
+<h2>How the Jet Lag Planner works</h2>
+<p>Jet lag occurs when your internal body clock is out of sync with the local time after rapid travel across time zones. Light is one of the strongest signals for the circadian clock, so the timing of light exposure, sleep, meals, and caffeine can help structure an adjustment plan.</p>
+<p>This tool is intended for travelers who want a practical schedule around a flight. Individual adjustment varies, and the schedule should not replace advice from a qualified healthcare professional.</p>
+<h2>Why jet lag happens</h2>
+<p>Your body runs on a circadian clock of about 24 hours that is kept in time mainly by light. When you fly across time zones, the local day changes instantly but your clock does not. For a few days you feel sleepy at the wrong time, wake in the night, and have less appetite and concentration at the right time. A common rule of thumb is that the body clock adjusts by roughly one time zone a day, sometimes slower, so a six-hour change can take most of a week.</p>
+<h3>Eastbound and westbound are different</h3>
+<p>Flying east means your day gets shorter and you must go to sleep earlier than your body wants. Flying west makes the day longer, which is usually easier because most people find it easier to stay up late than to fall asleep early. This is why many travellers find eastbound trips harder. Our step-by-step guides cover both: <a href="jet-lag-eastbound-schedule.html">eastbound jet lag schedule</a> and <a href="jet-lag-westbound-schedule.html">westbound jet lag schedule</a>.</p>
+<h3>The signals the planner organises</h3>
+<ul><li><strong>Light:</strong> bright light in the morning pushes your clock earlier, and bright light in the evening pushes it later. Getting the timing wrong can slow adjustment, so it matters for large time changes.</li><li><strong>Sleep:</strong> sleeping on the new local schedule as soon as practical, with short naps if needed, helps the clock catch up. See <a href="best-nap-length.html">the best nap length</a>.</li><li><strong>Meals:</strong> regular meal times at the destination act as a secondary clock signal.</li><li><strong>Caffeine:</strong> useful for alertness during the day, but harmful when taken too close to the new bedtime. See <a href="caffeine-half-life-sleep.html">how long caffeine stays in your system</a>.</li></ul>
+<h3>Practical tips</h3>
+<p>Start shifting your sleep by 30 to 60 minutes a day for a few days before you leave if you can, drink water on the flight, and go outdoors in daylight at your destination. After a long flight, keep any first-day nap short, around 20 minutes, so you can still sleep at the local bedtime. The planner gives a practical schedule, but individual adjustment varies, and it is general information, not medical advice. If you take medicines on a timed schedule, or have a health condition, ask a doctor or pharmacist how to handle time zone changes.</p>
+</section>
+</main>
+
+
+<footer class="foot"><nav><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="jetlag.html">Jet Lag Planner</a><a href="privacy.html#cookie-settings">Cookie settings</a></nav><p>For general information only. Not medical advice; talk to a doctor if you have ongoing sleep problems.</p><p>© <span id="year"></span> CircadianHub</p></footer>
+
+<script>
+/* -----------------------------
+   CircadianHub Jet Lag Planner
+   ----------------------------- */
+
+/* Major-city database. Time zones are IANA identifiers. */
+const CITIES = {
+"Amsterdam":"Europe/Amsterdam","Athens":"Europe/Athens","Auckland":"Pacific/Auckland","Baghdad":"Asia/Baghdad",
+"Bangkok":"Asia/Bangkok","Barcelona":"Europe/Madrid","Beijing":"Asia/Shanghai","Beirut":"Asia/Beirut",
+"Belgrade":"Europe/Belgrade","Berlin":"Europe/Berlin","Bogotá":"America/Bogota","Boston":"America/New_York",
+"Bratislava":"Europe/Bratislava","Brussels":"Europe/Brussels","Bucharest":"Europe/Bucharest","Budapest":"Europe/Budapest",
+"Buenos Aires":"America/Argentina/Buenos_Aires","Cairo":"Africa/Cairo","Calgary":"America/Edmonton","Cape Town":"Africa/Johannesburg",
+"Casablanca":"Africa/Casablanca","Chicago":"America/Chicago","Chisinau":"Europe/Chisinau","Copenhagen":"Europe/Copenhagen",
+"Dallas":"America/Chicago","Damascus":"Asia/Damascus","Delhi":"Asia/Kolkata","Denver":"America/Denver",
+"Dhaka":"Asia/Dhaka","Doha":"Asia/Qatar","Dubai":"Asia/Dubai","Dublin":"Europe/Dublin","Edinburgh":"Europe/London",
+"Frankfurt":"Europe/Berlin","Geneva":"Europe/Zurich","Guangzhou":"Asia/Shanghai","Hanoi":"Asia/Bangkok",
+"Helsinki":"Europe/Helsinki","Hong Kong":"Asia/Hong_Kong","Honolulu":"Pacific/Honolulu","Houston":"America/Chicago",
+"Istanbul":"Europe/Istanbul","Jakarta":"Asia/Jakarta","Jerusalem":"Asia/Jerusalem","Johannesburg":"Africa/Johannesburg",
+"Karachi":"Asia/Karachi","Kathmandu":"Asia/Kathmandu","Kiev":"Europe/Kyiv","Kigali":"Africa/Kigali",
+"Kingston":"America/Jamaica","Kuala Lumpur":"Asia/Kuala_Lumpur","Kuwait City":"Asia/Kuwait","Lagos":"Africa/Lagos",
+"Lahore":"Asia/Karachi","Lima":"America/Lima","Lisbon":"Europe/Lisbon","Ljubljana":"Europe/Ljubljana",
+"London":"Europe/London","Los Angeles":"America/Los_Angeles","Luxembourg":"Europe/Luxembourg","Madrid":"Europe/Madrid",
+"Manila":"Asia/Manila","Melbourne":"Australia/Melbourne","Mexico City":"America/Mexico_City","Miami":"America/New_York",
+"Milan":"Europe/Rome","Minneapolis":"America/Chicago","Montreal":"America/Toronto","Moscow":"Europe/Moscow",
+"Mumbai":"Asia/Kolkata","Munich":"Europe/Berlin","Nairobi":"Africa/Nairobi","Nassau":"America/Nassau",
+"New Delhi":"Asia/Kolkata","New York":"America/New_York","Osaka":"Asia/Tokyo","Oslo":"Europe/Oslo",
+"Paris":"Europe/Paris","Perth":"Australia/Perth","Philadelphia":"America/New_York","Phoenix":"America/Phoenix",
+"Prague":"Europe/Prague","Reykjavik":"Atlantic/Reykjavik","Riga":"Europe/Riga","Rio de Janeiro":"America/Sao_Paulo",
+"Riyadh":"Asia/Riyadh","Rome":"Europe/Rome","San Francisco":"America/Los_Angeles","Santiago":"America/Santiago",
+"Santo Domingo":"America/Santo_Domingo","São Paulo":"America/Sao_Paulo","Seattle":"America/Los_Angeles",
+"Seoul":"Asia/Seoul","Shanghai":"Asia/Shanghai","Singapore":"Asia/Singapore","Sofia":"Europe/Sofia",
+"Stockholm":"Europe/Stockholm","Sydney":"Australia/Sydney","Taipei":"Asia/Taipei","Tallinn":"Europe/Tallinn",
+"Tehran":"Asia/Tehran","Tel Aviv":"Asia/Jerusalem","Tokyo":"Asia/Tokyo","Toronto":"America/Toronto",
+"Tripoli":"Africa/Tripoli","Tunis":"Africa/Tunis","Vancouver":"America/Vancouver","Vienna":"Europe/Vienna",
+"Vilnius":"Europe/Vilnius","Warsaw":"Europe/Warsaw","Washington, D.C.":"America/New_York","Wellington":"Pacific/Auckland",
+"Winnipeg":"America/Winnipeg","Yangon":"Asia/Yangon","Yerevan":"Asia/Yerevan","Zagreb":"Europe/Zagreb",
+"Zurich":"Europe/Zurich","Adelaide":"Australia/Adelaide","Anchorage":"America/Anchorage","Antananarivo":"Indian/Antananarivo",
+"Asmara":"Africa/Asmara","Astana":"Asia/Almaty","Atlanta":"America/New_York","Austin":"America/Chicago",
+"Bandar Seri Begawan":"Asia/Brunei","Bangalore":"Asia/Kolkata","Banjul":"Africa/Banjul","Baku":"Asia/Baku",
+"Basel":"Europe/Zurich","Belfast":"Europe/London","Bishkek":"Asia/Bishkek","Brisbane":"Australia/Brisbane",
+"Busan":"Asia/Seoul","Canberra":"Australia/Sydney","Caracas":"America/Caracas","Cardiff":"Europe/London",
+"Chongqing":"Asia/Shanghai","Cleveland":"America/New_York","Colombo":"Asia/Colombo","Columbus":"America/New_York",
+"Conakry":"Africa/Conakry","Cotonou":"Africa/Porto-Novo","Dakar":"Africa/Dakar","Dar es Salaam":"Africa/Dar_es_Salaam",
+"Detroit":"America/Detroit","Douala":"Africa/Douala","Durban":"Africa/Johannesburg","Fes":"Africa/Casablanca",
+"Fukuoka":"Asia/Tokyo","Gaborone":"Africa/Gaborone","Georgetown":"America/Guyana","Glasgow":"Europe/London",
+"Guatemala City":"America/Guatemala","Harare":"Africa/Harare","Havana":"America/Havana","Hobart":"Australia/Hobart",
+"Indianapolis":"America/Indiana/Indianapolis","Islamabad":"Asia/Karachi","Jeddah":"Asia/Riyadh","Kampala":"Africa/Kampala",
+"Khartoum":"Africa/Khartoum","Kolkata":"Asia/Kolkata","La Paz":"America/La_Paz","Las Vegas":"America/Los_Angeles",
+"Leeds":"Europe/London","Lima":"America/Lima","Lusaka":"Africa/Lusaka","Macau":"Asia/Macau","Manchester":"Europe/London",
+"Maputo":"Africa/Maputo","Marseille":"Europe/Paris","Maseru":"Africa/Maseru","Medan":"Asia/Jakarta",
+"Melbourne":"Australia/Melbourne","Minsk":"Europe/Minsk","Montevideo":"America/Montevideo","Muscat":"Asia/Muscat",
+"Nagoya":"Asia/Tokyo","Nanjing":"Asia/Shanghai","Nicosia":"Asia/Nicosia","Nouakchott":"Africa/Nouakchott",
+"Novosibirsk":"Asia/Novosibirsk","Odessa":"Europe/Kyiv","Orlando":"America/New_York","Ottawa":"America/Toronto",
+"Panama City":"America/Panama","Port Louis":"Indian/Mauritius","Port Moresby":"Pacific/Port_Moresby","Porto":"Europe/Lisbon",
+"Portland":"America/Los_Angeles","Pretoria":"Africa/Johannesburg","Quebec City":"America/Toronto","Quito":"America/Guayaquil",
+"Rabat":"Africa/Casablanca","Recife":"America/Recife","Rotterdam":"Europe/Amsterdam","Salvador":"America/Bahia",
+"San Diego":"America/Los_Angeles","San Jose":"America/Costa_Rica","San Juan":"America/Puerto_Rico","Sarajevo":"Europe/Sarajevo",
+"Sendai":"Asia/Tokyo","Shenzhen":"Asia/Shanghai","Skopje":"Europe/Skopje","St. Petersburg":"Europe/Moscow",
+"Surabaya":"Asia/Jakarta","Suva":"Pacific/Fiji","Tbilisi":"Asia/Tbilisi","Tirana":"Europe/Tirane","Toulouse":"Europe/Paris",
+"Ulaanbaatar":"Asia/Ulaanbaatar","Valencia":"Europe/Madrid","Valletta":"Europe/Malta","Venice":"Europe/Rome",
+"Verona":"Europe/Rome","Victoria, Seychelles":"Indian/Mahe","Wuhan":"Asia/Shanghai","Xiamen":"Asia/Shanghai","Zanzibar":"Africa/Dar_es_Salaam"
+};
+
+const $ = id => document.getElementById(id);
+const cityNames = Object.keys(CITIES).sort((a,b)=>a.localeCompare(b));
+let selectedDeparture = null, selectedArrival = null, lastPlan = null;
+
+function localDateInput(){
+  const d = new Date();
+  return new Intl.DateTimeFormat("en-CA",{year:"numeric",month:"2-digit",day:"2-digit"}).format(d);
+}
+$("departureDate").value = localDateInput();
+$("year").textContent = new Date().getFullYear();
+const tabsEl=document.querySelector(".tabs");
+function tabHint(){tabsEl.dataset.more=(tabsEl.scrollLeft+tabsEl.clientWidth<tabsEl.scrollWidth-4)?"1":"0"}
+tabsEl.addEventListener("scroll",tabHint);addEventListener("resize",tabHint);tabHint();
+
+/* Theme persistence (same key and themes as the calculator page). */
+const THEMES=["light","dark","sepia","midnight","forest"];
+function setTheme(t){
+  if(!THEMES.includes(t))t="light";
+  document.documentElement.dataset.theme=t;
+  document.querySelectorAll(".top [data-theme]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.theme===t?"true":"false"));
+  try{localStorage.setItem("sleepcalc-theme",t)}catch(e){}
+}
+let savedTheme=null;try{savedTheme=localStorage.getItem("sleepcalc-theme")}catch(e){}
+setTheme(THEMES.includes(savedTheme)?savedTheme:(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));
+document.querySelectorAll(".top [data-theme]").forEach(b=>b.addEventListener("click",()=>setTheme(b.dataset.theme)));
+
+/* City autocomplete. */
+function setupAutocomplete(inputId, boxId, which){
+  const input=$(inputId), box=$(boxId);
+  function render(){
+    const q=input.value.trim().toLowerCase();
+    const matches=cityNames.filter(n=>n.toLowerCase().includes(q)).slice(0,12);
+    box.innerHTML="";
+    if(!q || !matches.length){box.hidden=true;return;}
+    matches.forEach(name=>{
+      const b=document.createElement("button");
+      b.type="button"; b.textContent=name+" — "+CITIES[name];
+      b.addEventListener("click",()=>{
+        input.value=name;
+        if(which==="dep") selectedDeparture=name; else selectedArrival=name;
+        box.hidden=true;
+        saveForm();
+      });
+      box.appendChild(b);
+    });
+    box.hidden=false;
+  }
+  input.addEventListener("input",()=>{ if(which==="dep")selectedDeparture=null;else selectedArrival=null; render(); });
+  input.addEventListener("focus",render);
+  document.addEventListener("click",e=>{if(!input.parentElement.contains(e.target))box.hidden=true});
+}
+setupAutocomplete("departureCity","depSuggestions","dep");
+setupAutocomplete("arrivalCity","arrSuggestions","arr");
+
+function getOffsetMinutes(timeZone,date){
+  const parts=new Intl.DateTimeFormat("en-US",{
+    timeZone,year:"numeric",month:"2-digit",day:"2-digit",
+    hour:"2-digit",minute:"2-digit",hourCycle:"h23"
+  }).formatToParts(date);
+  const p=Object.fromEntries(parts.filter(x=>x.type!=="literal").map(x=>[x.type,x.value]));
+  const asUTC=Date.UTC(+p.year,+p.month-1,+p.day,+p.hour,+p.minute);
+  return Math.round((asUTC-date.getTime())/60000);
+}
+function pad(n){return String(n).padStart(2,"0")}
+function minutesFromTime(s){const [h,m]=s.split(":").map(Number);return h*60+m}
+function timeFromMinutes(m){
+  m=((m%1440)+1440)%1440;
+  return pad(Math.floor(m/60))+":"+pad(m%60);
+}
+function fmtISO(d,tz){
+  const parts=new Intl.DateTimeFormat("en-CA",{timeZone:tz,year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(d);
+  const get=t=>parts.find(x=>x.type===t)?.value;
+  return `${get("year")}-${get("month")}-${get("day")}`;
+}
+function fmtDate(d,tz){
+  return new Intl.DateTimeFormat("en-US",{timeZone:tz,weekday:"short",month:"short",day:"numeric"}).format(d);
+}
+function fmtTime(d,tz){
+  return new Intl.DateTimeFormat("en-GB",{timeZone:tz,hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).format(d);
+}
+function addDays(d,n){const x=new Date(d);x.setDate(x.getDate()+n);return x}
+
+/* Parse the user's departure wall-clock time in the selected departure timezone.
+   We iteratively correct for the timezone offset, avoiding external libraries. */
+function zonedDateTimeToInstant(dateStr,timeStr,tz){
+  const [y,mo,da]=dateStr.split("-").map(Number);
+  const [h,mi]=timeStr.split(":").map(Number);
+  let guess=new Date(Date.UTC(y,mo-1,da,h,mi));
+  for(let i=0;i<3;i++){
+    const off=getOffsetMinutes(tz,guess);
+    guess=new Date(Date.UTC(y,mo-1,da,h,mi)-off*60000);
+  }
+  return guess;
+}
+
+/* NEW: sunrise/sunset (NOAA/suncalc-style approximation, pure JS). Coordinates cover the ~90 major cities below;
+   add more as "City":[lat,lon]. Cities without an entry fall back to general light cues. */
+const LL={"Amsterdam":[52.37,4.90],"Athens":[37.98,23.73],"Auckland":[-36.85,174.76],"Bangkok":[13.76,100.50],"Barcelona":[41.39,2.17],"Beijing":[39.90,116.41],"Berlin":[52.52,13.40],"Bogotá":[4.71,-74.07],"Boston":[42.36,-71.06],"Brussels":[50.85,4.35],"Budapest":[47.50,19.04],"Buenos Aires":[-34.60,-58.38],"Cairo":[30.04,31.24],"Cape Town":[-33.92,18.42],"Chicago":[41.88,-87.63],"Copenhagen":[55.68,12.57],"Dallas":[32.78,-96.80],"Delhi":[28.61,77.21],"Denver":[39.74,-104.99],"Doha":[25.29,51.53],"Dubai":[25.20,55.27],"Dublin":[53.35,-6.26],"Edinburgh":[55.95,-3.19],"Frankfurt":[50.11,8.68],"Geneva":[46.20,6.14],"Hanoi":[21.03,105.85],"Helsinki":[60.17,24.94],"Hong Kong":[22.32,114.17],"Honolulu":[21.31,-157.86],"Houston":[29.76,-95.37],"Istanbul":[41.01,28.98],"Jakarta":[-6.21,106.85],"Johannesburg":[-26.20,28.05],"Karachi":[24.86,67.01],"Kuala Lumpur":[3.14,101.69],"Lagos":[6.52,3.38],"Lima":[-12.05,-77.04],"Lisbon":[38.72,-9.14],"London":[51.51,-0.13],"Los Angeles":[34.05,-118.24],"Madrid":[40.42,-3.70],"Manila":[14.60,120.98],"Melbourne":[-37.81,144.96],"Mexico City":[19.43,-99.13],"Miami":[25.76,-80.19],"Milan":[45.46,9.19],"Montreal":[45.50,-73.57],"Moscow":[55.76,37.62],"Mumbai":[19.08,72.88],"Munich":[48.14,11.58],"Nairobi":[-1.29,36.82],"New Delhi":[28.61,77.21],"New York":[40.71,-74.01],"Osaka":[34.69,135.50],"Oslo":[59.91,10.75],"Paris":[48.86,2.35],"Perth":[-31.95,115.86],"Prague":[50.08,14.44],"Reykjavik":[64.15,-21.94],"Riga":[56.95,24.11],"Rio de Janeiro":[-22.91,-43.17],"Riyadh":[24.71,46.68],"Rome":[41.90,12.50],"San Francisco":[37.77,-122.42],"Santiago":[-33.45,-70.67],"São Paulo":[-23.55,-46.63],"Seattle":[47.61,-122.33],"Seoul":[37.57,126.98],"Shanghai":[31.23,121.47],"Singapore":[1.35,103.82],"Stockholm":[59.33,18.07],"Sydney":[-33.87,151.21],"Taipei":[25.03,121.57],"Tallinn":[59.44,24.75],"Tel Aviv":[32.09,34.78],"Tokyo":[35.68,139.69],"Toronto":[43.65,-79.38],"Vancouver":[49.28,-123.12],"Vienna":[48.21,16.37],"Vilnius":[54.69,25.28],"Warsaw":[52.23,21.01],"Washington, D.C.":[38.91,-77.04],"Wellington":[-41.29,174.78],"Zurich":[47.38,8.54],"Anchorage":[61.22,-149.90],"Atlanta":[33.75,-84.39],"Kolkata":[22.57,88.36],"Bangalore":[12.97,77.59],"Colombo":[6.93,79.86],"Havana":[23.11,-82.37],"Ottawa":[45.42,-75.70]};
+function sunTimes(date,lat,lon){
+  const rad=Math.PI/180,J0=0.0009,J2000=2451545,J1970=2440588,lw=rad*-lon,phi=rad*lat;
+  const d=date.getTime()/864e5-0.5+J1970-J2000, n=Math.round(d-J0-lw/(2*Math.PI));
+  const ds=J0+lw/(2*Math.PI)+n;
+  const par=x=>{const M=rad*(357.5291+0.98560028*x),C=rad*(1.9148*Math.sin(M)+0.02*Math.sin(2*M)+0.0003*Math.sin(3*M)),L=M+C+rad*102.9372+Math.PI;return {M,L}};
+  const q=par(ds),dec=Math.asin(Math.sin(q.L)*Math.sin(rad*23.4397));
+  const cosH=(Math.sin(rad*-0.833)-Math.sin(phi)*Math.sin(dec))/(Math.cos(phi)*Math.cos(dec));
+  if(cosH>1||cosH<-1)return {polar:cosH>1?"night":"day"};
+  const w=Math.acos(cosH),a=J0+(w+lw)/(2*Math.PI)+n,r=par(a);
+  const Jset=J2000+a+0.0053*Math.sin(r.M)-0.0069*Math.sin(2*r.L);
+  const Jnoon=J2000+ds+0.0053*Math.sin(q.M)-0.0069*Math.sin(2*q.L),Jrise=Jnoon-(Jset-Jnoon);
+  const toD=j=>new Date((j-J1970+0.5)*864e5);
+  return {sunrise:toD(Jrise),sunset:toD(Jset)};
+}
+function sunFor(city,arrival,tz){
+  const c=LL[city]; if(!c)return null;
+  const noon=zonedDateTimeToInstant(fmtISO(arrival,tz),"12:00",tz), t=sunTimes(noon,c[0],c[1]);
+  return t.polar?{polar:true}:{rise:fmtTime(t.sunrise,tz),set:fmtTime(t.sunset,tz)};
+}
+function event(icon,title,time,detail,extraClass=""){
+  let info="";
+  if(/Melatonin/.test(title))info="Consult a doctor before using melatonin. Dose and timing depend on individual factors.";
+  else if((icon==="☀️"||icon==="🕶️")&&!/^(Start the trip|Keep your usual)/.test(title))info="Light timing may need adjustment for certain conditions (e.g., bipolar disorder, migraines).";
+  const i=info?`<details class="info"><summary>ℹ️</summary>${info}</details>`:"";
+  return `<div class="event ${extraClass}"><div class="event-time">${time}</div><div class="event-icon">${icon}</div><div><div class="event-title">${title}</div><div class="event-detail">${detail}</div>${i}</div></div>`;
+}
+
+function makeDay(title,subtitle,events,dateKey){
+  if(!events.length)return "";
+  return `<article class="day" data-date="${dateKey||""}"><div class="day-head"><h3>${title}</h3><span>${subtitle}</span></div>${events.join("")}</article>`;
+}
+
+
+function destinationNightWindow(departure,arrival,tz){
+  /* First continuous stretch of destination night (22:00-06:00) during the flight.
+     Tracked in order so a window crossing midnight (e.g. 23:00-02:00) stays intact. */
+  let start=null,end=null;
+  for(let t=departure.getTime();t<=arrival.getTime();t+=30*60000){
+    const parts=new Intl.DateTimeFormat("en-US",{timeZone:tz,hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date(t));
+    const mins=Number(parts.find(x=>x.type==="hour").value)*60+Number(parts.find(x=>x.type==="minute").value);
+    if(mins>=22*60||mins<6*60){ if(start===null)start=mins; end=mins; }
+    else if(start!==null)break;
+  }
+  if(start===null)return null;
+  return {start:timeFromMinutes(start),end:timeFromMinutes(end)};
+}
+function toast(msg){
+  const old=document.querySelector(".toast"); if(old)old.remove();
+  const t=document.createElement("div");t.className="toast";t.textContent=msg;document.body.appendChild(t);
+  setTimeout(()=>t.remove(),2200);
+}
+/* NEW: copy formats (plain, Markdown, compact). Includes return plan when it is open. */
+function dayEls(){
+  const l=[...document.querySelectorAll("#schedule .day")];
+  if(!$("returnSchedule").hidden)l.push(...document.querySelectorAll("#returnSchedule .day"));
+  return l;
+}
+function schedulePlainText(fmt="text"){
+  const head=[$("summaryRoute").textContent,$("summaryZones").textContent,$("summaryDirection").textContent,$("summaryDays").textContent].join(" | ");
+  const md=fmt==="md",key=/^(Main sleep|Melatonin|Caffeine cut-off|Sleep earlier|Sleep later|Arrive)/;
+  let out=md?"# Jet Lag Plan\n\n"+head+"\n\n":"Jet Lag Plan\n"+head+"\n\n";
+  dayEls().forEach(day=>{
+    const h=day.querySelector("h3").textContent;
+    const evs=[...day.querySelectorAll(".event")].map(ev=>{
+      const t=ev.querySelector(".event-time").textContent.trim(),ti=ev.querySelector(".event-title").textContent.trim(),d=ev.querySelector(".event-detail").textContent.trim();
+      return {t,ti,d};
+    }).filter(e=>fmt!=="compact"||key.test(e.ti));
+    if(!evs.length)return;
+    out+=(md?"## ":"")+h+"\n";
+    evs.forEach(e=>{out+=fmt==="compact"?`${e.t} ${e.ti}\n`:md?`- **${e.t}** ${e.ti} — ${e.d}\n`:`${e.t} — ${e.ti} — ${e.d}\n`});
+    out+="\n";
+  });
+  if(fmt!=="compact"){const w=document.querySelector("#results .warning:last-of-type");const sn=[...document.querySelectorAll("#results .card .warning")].pop();if(sn)out+="Safety note\n"+sn.innerText.trim()+"\n";}
+  return out.trim();
+}
+function toICSDate(d){
+  const y=d.getUTCFullYear(),m=pad(d.getUTCMonth()+1),da=pad(d.getUTCDate()),h=pad(d.getUTCHours()),mi=pad(d.getUTCMinutes());
+  return `${y}${m}${da}T${h}${mi}00Z`;
+}
+function icsEscape(s){
+  return String(s||"").replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\r?\n/g,"\\n");
+}
+function toICSFloat(d){
+  /* Floating local time (no Z): calendars show it at the same wall-clock time wherever the traveller is. */
+  return `${d.getUTCFullYear()}${pad(d.getUTCMonth()+1)}${pad(d.getUTCDate())}T${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}00`;
+}
+function downloadICS(data){
+  const depTZ=CITIES[data.dep];
+  const dep=zonedDateTimeToInstant(data.date,data.time,depTZ);
+  const arrival=new Date(dep.getTime()+(data.flightH*60+data.flightM)*60000);
+  /* Departure and arrival are real instants, so they are written in UTC. */
+  const events=[
+    {start:toICSDate(dep),end:toICSDate(new Date(dep.getTime()+60*60000)),summary:"Jet lag plan — departure",desc:`Depart ${data.dep} for ${data.arr}.`},
+    {start:toICSDate(arrival),end:toICSDate(new Date(arrival.getTime()+30*60000)),summary:"Jet lag plan — arrival",desc:`Arrive ${data.arr}. Switch to local time.`}
+  ];
+  if(data.ret){ /* NEW: return flight events */
+    const rd=zonedDateTimeToInstant(data.ret.date,data.ret.time,CITIES[data.arr]),ra=new Date(rd.getTime()+(data.ret.h*60+data.ret.m)*60000);
+    events.push({start:toICSDate(rd),end:toICSDate(new Date(rd.getTime()+60*60000)),summary:"Jet lag plan — return departure",desc:`Depart ${data.arr} for ${data.dep}.`},
+      {start:toICSDate(ra),end:toICSDate(new Date(ra.getTime()+30*60000)),summary:"Jet lag plan — return arrival",desc:`Arrive ${data.dep}.`});
+  }
+  const skip=["Arrive","Start the trip normally"];
+  document.querySelectorAll("#schedule .day, #returnSchedule .day").forEach(day=>{
+    const iso=day.dataset.date;
+    if(!iso)return;
+    const [y,m,d]=iso.split("-").map(Number);
+    day.querySelectorAll(".event").forEach(ev=>{
+      if(ev.classList.contains("event-do-not-sleep"))return;
+      const raw=ev.querySelector(".event-time")?.textContent?.trim()||"";
+      const match=raw.match(/^(\d{1,2}):(\d{2})(?:\s+local time)?$/); /* only plain clock times */
+      if(!match)return;
+      const title=ev.querySelector(".event-title")?.textContent?.trim()||"Jet lag plan";
+      if(skip.includes(title))return;
+      const detail=ev.querySelector(".event-detail")?.textContent?.trim()||"";
+      const s=new Date(Date.UTC(y,m-1,d,Number(match[1]),Number(match[2])));
+      events.push({start:toICSFloat(s),end:toICSFloat(new Date(s.getTime()+30*60000)),summary:title,desc:detail});
+    });
+  });
+
+  const uid=()=>crypto.randomUUID?crypto.randomUUID():Date.now()+"-"+Math.random();
+  const body=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//CircadianHub//Jet Lag Planner//EN","CALSCALE:GREGORIAN"];
+  events.forEach(e=>body.push(
+    "BEGIN:VEVENT","UID:"+uid(),"DTSTAMP:"+toICSDate(new Date()),
+    "DTSTART:"+e.start,"DTEND:"+e.end,
+    "SUMMARY:"+icsEscape(e.summary),"DESCRIPTION:"+icsEscape(e.desc),"END:VEVENT"
+  ));
+  body.push("END:VCALENDAR");
+  const blob=new Blob([body.join("\r\n")],{type:"text/calendar;charset=utf-8"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`jetlag-plan-${data.dep}-${data.arr}.ics`;a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+function buildPlan(data,isRet){
+  const S={notes:[]};
+  const P=isRet?"Return Day ":"Day ";
+  const depTZ=CITIES[data.dep], arrTZ=CITIES[data.arr];
+  const departure=zonedDateTimeToInstant(data.date,data.time,depTZ);
+  const flightMinutes=data.flightH*60+data.flightM;
+  const arrival=new Date(departure.getTime()+flightMinutes*60000);
+  const depOffset=getOffsetMinutes(depTZ,departure);
+  const arrOffset=getOffsetMinutes(arrTZ,arrival);
+  /* Keep half-hour zones (e.g. India +5:30) exact; normalise to the shortest signed difference. */
+  let diffMin=arrOffset-depOffset;
+  if(diffMin>720)diffMin-=1440;else if(diffMin<-720)diffMin+=1440;
+  if(Math.abs(diffMin)===720)diffMin=720; /* exactly 12 h: direction is ambiguous, treat as eastward */
+  const diff=diffMin/60;
+  const abs=Math.abs(diff);
+  const absLbl=Number.isInteger(abs)?String(abs):String(+abs.toFixed(2));
+  const diffLbl=(diff>=0?"+":"-")+absLbl;
+  const actualDirection=diff>0?"Eastward":diff<0?"Westward":"Same local offset";
+
+  S.arrivalMs=arrival.getTime();
+  S.route=`${data.dep} → ${data.arr}: ${diffLbl} h`;
+  S.dir=diff===0?"No shift":`${actualDirection} — ${diff>0?"advance":"delay"} the clock`;
+  /* Typical body-clock rates: ~1 h/day eastward (advance), ~1.5 h/day westward (delay). */
+  S.adjDays=abs===0?0:Math.max(1,Math.ceil(abs/(diff>0?1:1.5)));
+  S.days=abs===0?"No adjustment needed":abs<=2?"Minimal adjustment":`About ${S.adjDays} day${S.adjDays===1?"":"s"}`;
+  S.zones=absLbl+" "+(abs===1?"time zone":"time zones")+" crossed";
+  S.note=`Departure: ${fmtDate(departure,depTZ)} at ${fmtTime(departure,depTZ)} (${data.dep}). Arrival: ${fmtDate(arrival,arrTZ)} at ${fmtTime(arrival,arrTZ)} (${data.arr}). Flight duration: ${Math.floor(flightMinutes/60)}h ${flightMinutes%60}m.`;
+
+  const direction=diff>=0?"east":"west";
+  const homeBed=minutesFromTime(data.bed);
+  const homeWake=minutesFromTime(data.wake);
+  /* NEW: chronotype, age, trip length */
+  const ch=data.chrono||"neutral", trip=data.trip||0, age=data.age||0;
+  const shortTrip=trip>=1&&trip<=3;
+  const cap=ch==="morning"?2.5:ch==="evening"?1.5:2;
+  const shift=shortTrip?0:Math.min(cap,Math.max(0,Math.round(abs/3*2)/2));
+  const melOff=ch==="morning"?-30:ch==="evening"?30:0;
+  if(ch==="morning")S.notes.push("As a morning person, eastward travel is usually easier.");
+  if(ch==="evening")S.notes.push("As an evening person, westward travel is usually easier.");
+  if(age&&age<12)S.notes.push("Children adjust differently. Consult a pediatrician before using melatonin. Light exposure should be supervised.");
+  if(age>60)S.notes.push("Older adults often adjust more slowly. Allow extra days for recovery.");
+  if(shortTrip)S.notes.push("For a short trip, stay on home time if possible. Don't try to fully adjust.");
+  if(trip>=8)S.notes.push("You have time to fully adjust. Start pre-trip shifting 2-3 days earlier.");
+  if(data.med)S.notes.push("⚠️ Standard light and melatonin advice may not apply to you. Consult your doctor before following this plan.");
+  S.strategy="Trip strategy: "+(shortTrip?"Short trip — stay on home time":"Full adjustment recommended");
+  if(age>60&&S.adjDays>0){S.days+=" (+1–2 days)";S.adjDays+=1;}
+  S.stay=shortTrip&&abs>0;
+  const sign=direction==="east"?-1:1;
+  const shiftedBed=timeFromMinutes(homeBed+sign*shift*60);
+  const shiftedWake=timeFromMinutes(homeWake+sign*shift*60);
+  const targetBedtime=shiftedBed;
+  const napCutoff=timeFromMinutes(minutesFromTime(targetBedtime)-180);
+  let melatoninTime=direction==="east"
+    ? timeFromMinutes(minutesFromTime(targetBedtime)-270)
+    : targetBedtime;
+  melatoninTime=timeFromMinutes(minutesFromTime(melatoninTime)+melOff);
+
+  const days=[];
+  /* Day before: practical pre-adjustment. */
+  const preEvents=[];
+  if(abs>0){
+    if(direction==="east"){
+      preEvents.push(event("🛏️","Sleep earlier",shiftedBed,`Aim for bedtime about ${shift} hour${shift===1?"":"s"} earlier than your usual ${data.bed}.`));
+      preEvents.push(event("☀️","Prefer earlier daylight",timeFromMinutes((minutesFromTime(shiftedWake)+30)%1440),"Get ordinary outdoor light after waking; avoid deliberately seeking bright late-evening light."));
+      preEvents.push(event("⛔","Do not sleep now","After "+napCutoff,`Avoid a long nap after ${napCutoff} so you can protect the planned ${targetBedtime} bedtime.`, "event-do-not-sleep"));
+      preEvents.push(event("☕","Caffeine OK",timeFromMinutes(minutesFromTime(shiftedWake)+60),"If you use caffeine, keep it earlier in the day and stop at least 8 hours before planned bedtime."));
+      preEvents.push(event("🚫","Caffeine cut-off",timeFromMinutes(minutesFromTime(shiftedBed)-480),"Avoid caffeine late enough to protect your earlier bedtime."));
+    }else{
+      preEvents.push(event("🛏️","Sleep later",shiftedBed,`If practical, move bedtime about ${shift} hour${shift===1?"":"s"} later than your usual ${data.bed}.`));
+      preEvents.push(event("🕶️","Limit very early bright light",timeFromMinutes(minutesFromTime(shiftedWake)),"If practical, keep the first part of the morning dimmer rather than deliberately seeking bright light."));
+      preEvents.push(event("☀️","Prefer later-day light",timeFromMinutes(17*60),"Outdoor light in the later afternoon/early evening can support a delayed schedule."));
+      preEvents.push(event("☕","Caffeine OK",timeFromMinutes(minutesFromTime(shiftedWake)+60),"If you use caffeine, keep it earlier enough that sleep is not disrupted."));
+      preEvents.push(event("🚫","Caffeine cut-off",timeFromMinutes(minutesFromTime(shiftedBed)-480),"Avoid caffeine late enough to protect your planned bedtime."));
+    }
+  }else{
+    preEvents.push(event("🛏️","Keep your normal sleep schedule",data.bed,`Keep your usual bedtime and wake time (${data.wake}) before travel.`));
+    preEvents.push(event("☕","Caffeine cut-off",timeFromMinutes(homeBed-480),"Keep caffeine at least 8 hours away from planned bedtime if possible."));
+  }
+  days.push(makeDay(P+"1 — Before Departure",fmtDate(addDays(departure,-1),depTZ),preEvents,fmtISO(addDays(departure,-1),depTZ)));
+
+  /* Travel day. Use destination clock for a simple behavioral schedule. */
+  const travel=[];
+  travel.push(event("☀️","Start the trip normally",fmtTime(departure,depTZ),`Departure from ${data.dep}. Once aboard, think in destination time when deciding when to sleep.`)); // not used for exact AM/PM
+  const flightWindow = destinationNightWindow(departure, arrival, arrTZ);
+  if(flightWindow){
+    travel.push(event("🛏️","Nap / sleep during the flight","Destination night: "+flightWindow.start+"–"+flightWindow.end,
+      "If this overlaps your flight, a 4–6 hour sleep period can be considered. Do not force sleep if you are not sleepy."));
+  }else{
+    travel.push(event("🛏️","Avoid a long flight sleep","Destination daytime",
+      "If practical, stay awake, use normal light exposure, hydrate, and move periodically rather than taking a long sleep."));
+  }
+  travel.push(event("💧","Hydrate and move regularly","During flight","Drink normally, stand/walk periodically when safe, and avoid using alcohol as a sleep aid."));
+  travel.push(event("☕","Caffeine cut-off","At least 8 h before planned destination sleep","If you use caffeine, stop early enough to protect the sleep period you are targeting."));
+  days.push(makeDay(P+"2 — Travel Day",`${fmtDate(departure,depTZ)} → arrival ${fmtDate(arrival,arrTZ)}`,travel,fmtISO(departure,depTZ)));
+
+  /* Arrival day: use destination clock and direction-specific light emphasis. */
+  const arrivalEvents=[];
+  const arrivalTimeText=fmtTime(arrival,arrTZ);
+  const sun=sunFor(data.arr,arrival,arrTZ);
+  const aH=+fmtTime(arrival,arrTZ).slice(0,2), hH=+fmtTime(arrival,depTZ).slice(0,2);
+  arrivalEvents.push(event("🛬","Arrive",arrivalTimeText,`Arrival in ${data.arr}. Switch to local time for meals, light, and sleep.`));
+  if(abs===0){
+    arrivalEvents.push(event("☀️","Keep your usual routine","All day","Your local time matches home, so keep normal light, meal and sleep times."));
+  }else if(direction==="east"){
+    if(sun&&!sun.polar){
+      arrivalEvents.push(event("☀️","Seek outdoor light after sunrise ("+sun.rise+" local)",sun.rise,"Outdoor light soon after sunrise helps advance your clock."));
+      arrivalEvents.push(event("🕶️","Dim lights after sunset ("+sun.set+" local)",sun.set,"Keep the evening dimmer and avoid deliberately seeking strong light late at night."));
+    }else if(!sun){
+    arrivalEvents.push(event("☀️","Seek destination morning/daylight", "Morning–late morning", "Prefer outdoor light earlier in the destination day. The exact ideal light window depends on your existing circadian phase, so this is a general planning cue."));
+    arrivalEvents.push(event("🕶️","Reduce bright late-evening light","Last 2–3 h before bed","Keep the evening dimmer and avoid deliberately seeking strong outdoor light late at night."));
+    }
+    arrivalEvents.push(event("⛔","Do not sleep now","After "+napCutoff+" local time",`Avoid a long nap after ${napCutoff} so you can stay awake until the planned local bedtime.`, "event-do-not-sleep"));
+  }else{
+    arrivalEvents.push(event("🕶️","Keep very early light modest","Early morning","If practical, avoid deliberately seeking very bright light immediately after waking while adapting westward."));
+    arrivalEvents.push(event("☀️","Seek later-day outdoor light",(sun&&sun.set?"Before sunset ("+sun.set+")":"Late afternoon / early evening"),"A walk outdoors later in the local day can support a delayed schedule."));
+    arrivalEvents.push(event("⛔","Do not sleep now","Until "+timeFromMinutes((homeWake+180)%1440)+" local time","Avoid a long early nap if you can safely stay awake until the calculated adaptation window ends.", "event-do-not-sleep"));
+  }
+  if(sun&&sun.polar)arrivalEvents.push(event("☀️","No sunrise/sunset","All day","No sunrise/sunset at this location on this date. Follow general light cues."));
+  if(aH>=6&&aH<12&&(hH>=18||hH<6))arrivalEvents.push(event("⚠️","Sleepy on arrival","On arrival","⚠️ You may feel sleepy on arrival. Try to stay awake until local evening. A short nap (20 min) is fine if needed."));
+  else if(aH>=22||aH<6)arrivalEvents.push(event("⚠️","Sleep soon after arrival","On arrival","You'll likely want to sleep immediately. This is normal — sleep, then wake at your normal local time."));
+  else if(aH>=12&&aH<18)arrivalEvents.push(event("⚠️","Stay active","On arrival","Stay active. Avoid a long nap. Get outdoor light."));
+  arrivalEvents.push(event("🍽️","Eat on local time","From arrival onward","Move meals toward normal destination meal times rather than continuing home-time meals."));
+  arrivalEvents.push(event("☕","Caffeine cut-off",timeFromMinutes((direction==="east"?19:20)*60),`Protect tonight's sleep. Adjust earlier if caffeine affects you strongly.`));
+  arrivalEvents.push(event("🛏️","Main sleep — "+targetBedtime,targetBedtime+" local time","Aim for 7-9 hours at your normal destination bedtime."));
+  arrivalEvents.push(event("😴","Optional short nap — before 15:00 local","Before 15:00","A 20-minute power nap is fine if you're struggling. Do not sleep longer than 30 minutes."));
+  if(abs>0)arrivalEvents.push(event("💊","Melatonin (optional)",melatoninTime+" local time",
+    `This is a general timing cue based on a ${targetBedtime} target bedtime. Consult a doctor or pharmacist before using melatonin, especially if you take medicines or have a medical condition; this planner does not choose a dose.`));
+  days.push(makeDay(P+"3 — Arrival Day",`${fmtDate(arrival,arrTZ)} · ${arrivalTimeText} local`,arrivalEvents,fmtISO(arrival,arrTZ)));
+
+  if((flightMinutes>360 && abs>0) || abs>=7){
+    const next=addDays(arrival,1);
+    const nextEvents=[];
+    if(direction==="east"){
+      nextEvents.push(event("☀️","Seek earlier-day light","Morning","Favor outdoor light earlier in the local day; avoid deliberately seeking strong light late in the evening."));
+      nextEvents.push(event("🛏️","Keep local bedtime consistent","Evening","Keep wake and sleep times stable rather than sleeping in for many hours."));
+    }else{
+      nextEvents.push(event("🕶️","Avoid very early bright light","Early morning","Keep the first part of the morning relatively dim if comfortable and practical."));
+      nextEvents.push(event("☀️","Seek later-day light","Late afternoon / early evening","Use outdoor light later in the day to support the delayed schedule."));
+      nextEvents.push(event("🛏️","Keep local bedtime consistent","Evening","Maintain the destination schedule and avoid a large catch-up sleep."));
+    }
+    nextEvents.push(event("🍽️","Keep meals local","Local meal times","Regular meals can reinforce the new daily schedule."));
+    nextEvents.push(event("☕","Caffeine cut-off","~8 h before bedtime","Keep caffeine well away from planned sleep."));
+    nextEvents.push(event("💊","Melatonin (optional)",melatoninTime+" local time",
+      `This is a general timing cue based on a ${targetBedtime} target bedtime. Consult a doctor or pharmacist before using melatonin, especially if you take medicines or have a medical condition; this planner does not choose a dose.`));
+    days.push(makeDay(P+"4 — First Full Day",fmtDate(next,arrTZ),nextEvents,fmtISO(next,arrTZ)));
+  }
+
+  return {days:days.join(""),S};
+}
+/* NEW: renders outbound (+ optional return) plan */
+function setProgress(S){
+  const now=Date.now(),bar=$("progressBar"),track=$("progressTrack");
+  let pct=0,label="",hint="";
+  if(S.adjDays===0){pct=100;label="No adjustment needed";hint="Your destination is on the same clock as home.";}
+  else if(S.stay){pct=0;label="Staying on home time";hint="For a short trip the plan keeps you on home time, so no clock shift is tracked.";}
+  else{
+    const total=S.adjDays*864e5,el=now-S.arrivalMs;
+    pct=Math.max(0,Math.min(100,Math.round(el/total*100)));
+    if(el<0)label="Starts when you land";
+    else if(pct>=100)label="Typically adjusted";
+    else label="Day "+(Math.floor(el/864e5)+1)+" of about "+S.adjDays;
+    hint="Estimated from your arrival time and about "+S.adjDays+" day"+(S.adjDays===1?"":"s")+" to adjust (roughly 1 h/day eastward, 1.5 h/day westward). Individual results vary.";
+  }
+  $("progressText").textContent=pct+"% · "+label;
+  $("progressHint").textContent=hint;
+  track.setAttribute("aria-valuenow",pct);track.setAttribute("aria-valuetext",pct+"% — "+label);
+  bar.style.width="0%";
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{bar.style.width=pct+"%";}));
+}
+/* ---- Printable card ---- */
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function printDays(root){
+  return [...root.querySelectorAll(".day")].map(day=>{
+    const rows=[...day.querySelectorAll(".event")].map(ev=>{
+      const g=q=>(ev.querySelector(q)?.textContent||"").trim();
+      return `<tr><td class="pc-t">${esc(g(".event-time"))}</td><td class="pc-i">${esc(g(".event-icon"))}</td><td><strong>${esc(g(".event-title"))}</strong><br><span>${esc(g(".event-detail"))}</span></td></tr>`;
+    }).join("");
+    return `<section class="pc-day"><h4>${esc(day.querySelector("h3").textContent)}<em>${esc(day.querySelector(".day-head span").textContent)}</em></h4><table>${rows}</table></section>`;
+  }).join("");
+}
+function buildPrintCard(){
+  if(!lastPlan)return;
+  const t=id=>esc($(id).textContent.trim());
+  const notes=[...document.querySelectorAll("#planNotes .warning")].map(n=>`<div class="pc-note">${esc(n.textContent.trim())}</div>`).join("");
+  const safe=[...document.querySelectorAll("#results .card .warning")].pop();
+  let h=`<div class="pc"><div class="pc-head"><div><h2>Jet Lag Plan</h2><p class="pc-route">${t("summaryRoute")}</p></div><div class="pc-brand">CircadianHub<br><small>Printed ${esc(new Date().toLocaleDateString())}</small></div></div>`
+   +`<div class="pc-stats"><div class="pc-stat"><b>${t("summaryRoute")}</b><small>Route and time difference</small></div><div class="pc-stat"><b>${t("summaryDirection")}</b><small>Clock adjustment</small></div><div class="pc-stat"><b>${t("summaryDays")}</b><small>Adjustment window</small></div><div class="pc-stat"><b>${t("summaryZones")}</b><small>Time zones</small></div></div>`
+   +`<p class="pc-meta">${t("arrivalNote")}</p><p class="pc-meta"><strong>${t("strategy")}</strong></p>${notes}`
+   +printDays($("schedule"));
+  if(lastPlan.ret&&$("returnSchedule").querySelector(".day")){
+    h+=`<h3 class="pc-sec">Return trip</h3><p class="pc-meta">${t("returnSummary")}</p>`+printDays($("returnSchedule"));
+  }
+  if(safe)h+=`<div class="pc-safe">${esc(safe.textContent.trim())}</div>`;
+  h+=`<div class="pc-foot">circadianhub.com/jetlag.html · Educational planning aid, not medical advice.</div></div>`;
+  $("printCard").innerHTML=h;
+}
+window.addEventListener("beforeprint",buildPrintCard);
+
+/* ---- localStorage: remember the form ---- */
+const FORM_KEY="jetlag-form-v1";
+const FIELD_IDS=["departureCity","arrivalCity","departureDate","departureTime","flightHours","flightMinutes","bedtime","waketime","age","tripLen","retDate","retTime","retH","retM"];
+let quiet=false;
+function saveForm(){
+  try{
+    const s={f:{},planReturn:$("planReturn").checked,med:$("medFlag").checked,
+      chrono:(document.querySelector("input[name=chrono]:checked")||{}).value||"neutral",planned:!!lastPlan};
+    FIELD_IDS.forEach(id=>{s.f[id]=$(id).value});
+    localStorage.setItem(FORM_KEY,JSON.stringify(s));
+  }catch(e){}
+}
+function loadForm(){
+  let s=null;try{s=JSON.parse(localStorage.getItem(FORM_KEY))}catch(e){}
+  if(!s||typeof s!=="object"||!s.f)return;
+  FIELD_IDS.forEach(id=>{if(typeof s.f[id]==="string")$(id).value=s.f[id]});
+  const today=localDateInput();
+  if(!$("departureDate").value||$("departureDate").value<today)$("departureDate").value=today; /* don't keep a stale date */
+  if($("retDate").value&&$("retDate").value<$("departureDate").value)$("retDate").value=$("departureDate").value;
+  $("medFlag").checked=!!s.med;
+  const c=document.querySelector(`input[name=chrono][value="${s.chrono}"]`);if(c)c.checked=true;
+  $("planReturn").checked=!!s.planReturn;$("planReturn").dispatchEvent(new Event("change"));
+  if(s.planned){quiet=true;try{$("planner").requestSubmit()}finally{quiet=false}}
+}
+function generatePlan(data){
+  lastPlan=data;
+  const o=buildPlan(data,false),S=o.S,notesHtml=x=>x.map(n=>`<div class="warning">${n}</div>`).join("");
+  $("summaryRoute").textContent=S.route;$("summaryDirection").textContent=S.dir;$("summaryDays").textContent=S.days;$("summaryZones").textContent=S.zones;
+  $("arrivalNote").textContent=S.note;$("strategy").textContent=S.strategy;
+  setProgress(S);
+  $("planNotes").innerHTML=notesHtml(S.notes);
+  $("schedule").innerHTML=o.days;
+  if(data.ret){
+    const r=buildPlan({...data,dep:data.arr,arr:data.dep,date:data.ret.date,time:data.ret.time,flightH:data.ret.h,flightM:data.ret.m},true);
+    $("returnSchedule").innerHTML=notesHtml(r.S.notes)+r.days;$("returnSchedule").hidden=true;
+    $("returnBox").hidden=false;$("toggleReturn").textContent="Show return plan";
+    $("returnSummary").textContent="Return: "+r.S.route+" · "+r.S.dir;
+  }else{$("returnBox").hidden=true;$("returnSchedule").innerHTML="";$("returnSummary").textContent="";}
+  $("results").style.display="block";
+  buildPrintCard();saveForm();
+  if(!quiet)$("results").scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+$("planner").addEventListener("submit",e=>{
+  e.preventDefault();
+  const error=$("error"); error.style.display="none";
+  const depName=selectedDeparture || Object.keys(CITIES).find(x=>x.toLowerCase()===$("departureCity").value.trim().toLowerCase());
+  const arrName=selectedArrival || Object.keys(CITIES).find(x=>x.toLowerCase()===$("arrivalCity").value.trim().toLowerCase());
+  const fh=Number($("flightHours").value), fm=Number($("flightMinutes").value);
+  if(!depName||!arrName){error.textContent="Please select both cities from the autocomplete suggestions.";error.style.display="block";return}
+  if(depName===arrName){error.textContent="Departure and arrival cities are the same. Choose different cities or use the local schedule from your main calculator.";error.style.display="block";return}
+  if(!Number.isFinite(fh)||!Number.isFinite(fm)||fh<0||fm<0||fm>59||(fh*60+fm)<30){error.textContent="Enter a valid flight duration of at least 30 minutes.";error.style.display="block";return}
+  const data={dep:depName,arr:arrName,date:$("departureDate").value,time:$("departureTime").value,flightH:fh,flightM:fm,bed:$("bedtime").value,wake:$("waketime").value,
+    chrono:document.querySelector('input[name=chrono]:checked').value,age:Number($("age").value)||0,trip:Number($("tripLen").value)||0,med:$("medFlag").checked};
+  if($("planReturn").checked){
+    const rh=Number($("retH").value),rm=Number($("retM").value);
+    if(!$("retDate").value||!$("retTime").value||!Number.isFinite(rh)||!Number.isFinite(rm)||rh<0||rm<0||rm>59||(rh*60+rm)<30){error.textContent="Enter a valid return date, time and flight duration (at least 30 minutes).";error.style.display="block";return}
+    data.ret={date:$("retDate").value,time:$("retTime").value,h:rh,m:rm};
+  }
+  generatePlan(data);
+});
+$("copyFmt").addEventListener("change",async e=>{
+  const f=e.target.value; if(!f)return;
+  try{await navigator.clipboard.writeText(schedulePlainText(f));toast("Plan copied to clipboard.");}
+  catch(err){toast("Copy failed — select and copy the schedule manually.");}
+  e.target.value="";
+});
+$("printBtn").addEventListener("click",()=>{ if(!lastPlan){toast("Generate a plan first.");return}; buildPrintCard(); window.print(); });
+$("icsBtn").addEventListener("click",()=>{ if(lastPlan) downloadICS(lastPlan); });
+$("resetBtn").addEventListener("click",()=>{
+  $("planner").reset(); $("planReturn").dispatchEvent(new Event("change")); $("departureDate").value=localDateInput(); selectedDeparture=null;selectedArrival=null;lastPlan=null;
+  $("results").style.display="none";$("error").style.display="none";window.scrollTo({top:0,behavior:"smooth"});
+  try{localStorage.removeItem(FORM_KEY)}catch(e){}
+});
+
+/* NEW: return-trip toggle, email, share link, load from URL */
+$("planReturn").addEventListener("change",()=>{$("returnFields").style.display=$("planReturn").checked?"block":"none";
+  if($("planReturn").checked&&!$("retDate").value)$("retDate").value=$("departureDate").value;});
+$("toggleReturn").addEventListener("click",()=>{const h=$("returnSchedule").hidden=!$("returnSchedule").hidden;$("toggleReturn").textContent=h?"Show return plan":"Hide return plan";});
+$("emailBtn").addEventListener("click",()=>{ if(!lastPlan)return;
+  const body=schedulePlainText("text").slice(0,1800);
+  location.href="mailto:?subject="+encodeURIComponent(`My Jet Lag Plan for ${lastPlan.dep} → ${lastPlan.arr}`)+"&body="+encodeURIComponent(body+(body.length>=1800?"\n…(truncated; use Copy plan for the full text)":""));
+});
+const SHARE_KEYS={dep:"dep",arr:"arr",date:"date",time:"time",fh:"flightH",fm:"flightM",bed:"bed",wake:"wake",chrono:"chrono",age:"age",trip:"trip",med:"med"};
+$("shareBtn").addEventListener("click",async()=>{ if(!lastPlan)return;
+  const q=new URLSearchParams();
+  Object.entries(SHARE_KEYS).forEach(([k,f])=>{const v=lastPlan[f];if(v)q.set(k,v===true?"1":v)});
+  if(lastPlan.ret){q.set("rd",lastPlan.ret.date);q.set("rt",lastPlan.ret.time);q.set("rh",lastPlan.ret.h);q.set("rm",lastPlan.ret.m);}
+  const url=location.origin+location.pathname+"?"+q.toString();
+  try{await navigator.clipboard.writeText(url);toast("Share link copied.");}catch(e){toast("Copy failed.");}
+});
+$("planner").addEventListener("input",saveForm);$("planner").addEventListener("change",saveForm);
+if(!new URLSearchParams(location.search).get("dep"))loadForm(); /* share links take priority over saved data */
+(function(){
+  const q=new URLSearchParams(location.search); if(!q.get("dep")||!q.get("arr"))return;
+  const set=(id,v)=>{if(v!==null)$(id).value=v};
+  selectedDeparture=q.get("dep");selectedArrival=q.get("arr");
+  if(!CITIES[selectedDeparture]||!CITIES[selectedArrival])return;
+  $("departureCity").value=selectedDeparture;$("arrivalCity").value=selectedArrival;
+  set("departureDate",q.get("date"));set("departureTime",q.get("time"));set("flightHours",q.get("fh"));set("flightMinutes",q.get("fm"));
+  set("bedtime",q.get("bed"));set("waketime",q.get("wake"));set("age",q.get("age"));set("tripLen",q.get("trip"));
+  const c=document.querySelector(`input[name=chrono][value="${q.get("chrono")}"]`);if(c)c.checked=true;
+  $("medFlag").checked=q.get("med")==="1";
+  if(q.get("rd")){$("planReturn").checked=true;$("planReturn").dispatchEvent(new Event("change"));set("retDate",q.get("rd"));set("retTime",q.get("rt"));set("retH",q.get("rh"));set("retM",q.get("rm"));}
+  $("planner").requestSubmit();
+})();
+</script>
+</body>
+</html>

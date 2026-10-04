@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="google-adsense-account" content="ca-pub-5810682779564104">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wake-Up Time Calculator: Best Time to Wake Up | CircadianHub</title>
+<meta name="description" content="Going to bed soon? Enter your bedtime to see wake-up times at the end of a sleep cycle, so you're less likely to wake up groggy.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://circadianhub.com/wake-up-time-calculator.html">
+<meta property="og:url" content="https://circadianhub.com/wake-up-time-calculator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+<meta property="og:title" content="Wake-Up Time Calculator: Best Time to Wake Up | CircadianHub">
+<meta property="og:description" content="Going to bed soon? Enter your bedtime to see wake-up times at the end of a sleep cycle, so you're less likely to wake up groggy.">
+<meta property="og:image" content="https://circadianhub.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="CircadianHub: free sleep cycle, nap and jet lag calculators">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+/* ===== THEME TOKENS ===== */
+:root{--primary:#4F46E5;--secondary:#7C3AED;--bg:#F9FAFB;--card:#FFFFFF;--text:#111827;--muted:#6B7280;--border:#E5E7EB;--good:#10B981;--warn:#F59E0B;--soft:#EEF2FF}
+/* Themes: light (default), dark, sepia, midnight, forest. Dark ones also set color-scheme for native pickers. */
+:root[data-theme="dark"]{--bg:#111827;--card:#1F2937;--text:#F9FAFB;--muted:#9CA3AF;--border:#374151;--soft:#312E81;color-scheme:dark}
+:root[data-theme="midnight"]{--primary:#818CF8;--secondary:#A78BFA;--bg:#0B1020;--card:#141B34;--text:#E8ECFF;--muted:#95A0C8;--border:#27305A;--soft:#1E2650;color-scheme:dark}
+:root[data-theme="sepia"]{--primary:#B45309;--secondary:#92400E;--bg:#F4ECD8;--card:#FBF6E9;--text:#3B2F1E;--muted:#7A6A52;--border:#E2D5B5;--soft:#F1E6C8}
+:root[data-theme="forest"]{--primary:#047857;--secondary:#0F766E;--bg:#F1F7F2;--card:#FFFFFF;--text:#14261B;--muted:#5E7A67;--border:#D5E4D9;--soft:#E3F1E7}
+/* ===== BASE ===== */
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.5;padding:16px}
+.card{max-width:700px;margin:16px auto;background:var(--card);border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,.08);position:relative}
+h1{font-size:1.5rem;margin:0;background:linear-gradient(90deg,var(--primary),var(--secondary));-webkit-background-clip:text;background-clip:text;color:transparent}
+.top{display:flex;justify-content:flex-end;gap:7px;margin-bottom:12px}
+.sw{border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:10px;padding:7px 9px;cursor:pointer;font:inherit;line-height:1.2;transition:transform .15s}
+.sw:hover{transform:scale(1.08)}
+.sw[aria-pressed="true"]{outline:2px solid var(--primary);outline-offset:2px}
+@media(pointer:coarse){.sw{min-width:42px;min-height:42px}}
+.tabs[data-more="1"]{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 36px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 36px),transparent)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* ===== TABS (scroll horizontally on mobile) ===== */
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:16px;-webkit-overflow-scrolling:touch}
+.tab{flex:0 0 auto;border:1px solid var(--border);background:var(--bg);color:var(--text);padding:8px 14px;border-radius:999px;cursor:pointer;font-size:.9rem;white-space:nowrap}
+.tablink{flex:0 0 auto;display:inline-flex;align-items:center;border:1px solid var(--primary);background:var(--bg);color:var(--primary);padding:8px 14px;border-radius:999px;font-size:.9rem;font-weight:600;white-space:nowrap;text-decoration:none}
+.tablink:hover{background:var(--soft)}
+.tab.active{background:linear-gradient(90deg,var(--primary),var(--secondary));color:#fff;border-color:transparent}
+/* ===== FORMS ===== */
+.mode{display:none}.mode.active{display:block}
+.mode h2{font-size:1.15rem;margin:0 0 4px}
+.sub{color:var(--muted);font-size:.9rem;margin:0 0 16px}
+label{display:block;font-weight:600;font-size:.9rem;margin:14px 0 6px}
+input[type=time],select{width:100%;padding:10px 12px;font-size:1rem;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text)}
+.check{display:flex;align-items:center;gap:8px;font-weight:400;margin-top:14px;cursor:pointer}
+.check input{width:18px;height:18px;accent-color:var(--primary)}
+.hidden{display:none}
+.seg{display:flex;gap:8px;margin-top:14px}
+.seg label{position:relative;flex:1;margin:0;font-weight:500;text-align:center;border:1px solid var(--border);border-radius:8px;padding:10px 6px;cursor:pointer}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg input:checked+span{color:var(--primary);font-weight:700}
+.seg label:has(input:focus-visible){outline:2px solid var(--primary);outline-offset:2px}
+.seg label:has(input:checked){border-color:var(--primary);background:var(--soft)}
+/* ===== RESULTS ===== */
+.results{margin-top:20px;background:var(--soft);border-radius:12px;padding:16px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;background:var(--card);border:2px solid transparent;border-radius:10px;padding:10px 14px;margin-bottom:8px}
+.row.rec{border-color:var(--good)}
+.row b{font-size:1.15rem}
+.badge{background:var(--good);color:#fff;font-size:.72rem;padding:2px 8px;border-radius:999px;font-weight:700}
+.warn{background:rgba(245,158,11,.15);border-left:4px solid var(--warn);padding:10px 12px;border-radius:6px;margin-top:10px;font-size:.9rem}
+.tip{background:rgba(16,185,129,.12);border-left:4px solid var(--good);padding:10px 12px;border-radius:6px;margin-top:10px;font-size:.9rem}
+.note{color:var(--muted);font-size:.85rem;margin:8px 0 0}
+.seo{margin:24px 0 0;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.9rem}
+.site{max-width:700px;margin:0 auto;padding:8px 0 0;text-align:center}.site a{display:inline-block}.site img{display:block;width:min(320px,80vw);height:auto}.site a.ch-logo-link{display:inline-flex;align-items:center;gap:10px;text-decoration:none;padding:6px 0}.ch-logo-icon{flex:none;width:30px;height:30px;border-radius:50%;background:transparent;box-shadow:inset -9px -5px 0 0 var(--primary);transform:rotate(-15deg)}.ch-logo-text{font-size:clamp(1.5rem,6vw,1.9rem);font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--text)}.ch-logo-text span{color:var(--primary)}.logo-dark{display:none!important}:root[data-theme="dark"] .logo-light,:root[data-theme="midnight"] .logo-light{display:none!important}:root[data-theme="dark"] .logo-dark,:root[data-theme="midnight"] .logo-dark{display:block!important}
+.guide{margin:24px 0 0;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.92rem;line-height:1.7}.guide h2{font-size:1.15rem;margin:0 0 8px;color:var(--text)}.guide h3{font-size:1rem;margin:16px 0 4px;color:var(--text)}.guide p{margin:0 0 10px}.guide a{color:var(--primary);font-weight:600}.foot{max-width:700px;margin:0 auto 24px;text-align:center;color:var(--muted);font-size:.85rem}.foot a{color:var(--primary);font-weight:600}.foot p{margin:6px 0 0}
+@media(max-width:480px){.card{padding:16px}}
+.foot nav{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.ex{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:.9rem}.ex th,.ex td{border:1px solid var(--border);padding:6px 10px;text-align:left}.ex th{background:var(--soft);color:var(--text)}.guide ul{padding-left:20px}
+.seo a{color:var(--primary)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Wake-Up Time Calculator", "url": "https://circadianhub.com/wake-up-time-calculator.html", "applicationCategory": "HealthApplication", "operatingSystem": "Any", "description": "Going to bed soon? Enter your bedtime to see wake-up times at the end of a sleep cycle, so you're less likely to wake up groggy.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is it better to wake between cycles?", "acceptedAnswer": {"@type": "Answer", "text": "It can help you feel more alert, but cycles are not identical every night. Getting enough total sleep is the bigger factor."}}, {"@type": "Question", "name": "Why does the calculator add fall-asleep time?", "acceptedAnswer": {"@type": "Answer", "text": "Sleep does not start the moment you lie down. Adding 14 minutes by default keeps the wake-up times realistic, and you can enter a longer time if you take longer."}}, {"@type": "Question", "name": "Why do I still feel tired after a full cycle count?", "acceptedAnswer": {"@type": "Answer", "text": "Sleep debt, alcohol, caffeine late in the day and an irregular schedule can all leave you tired. If it persists, talk to a doctor."}}]}</script>
+</head>
+<body>
+<header class="site"><a href="/" class="ch-logo-link" aria-label="CircadianHub Homepage">
+    <!-- Pure CSS Shape Visual Anchor -->
+    <div class="ch-logo-icon" aria-hidden="true"></div>
+    <!-- Styled Brand Typography Text -->
+    <span class="ch-logo-text">Circadian<span>Hub</span></span>
+</a></header>
+<main class="card">
+  <h1 style="font-size:1.35rem;margin:0 0 12px">Wake-Up Time Calculator: When Should You Wake Up?</h1>
+  <div class="top" role="group" aria-label="Color theme"><button type="button" class="sw" data-theme="light" aria-label="Light theme" aria-pressed="false" title="Light">☀</button><button type="button" class="sw" data-theme="dark" aria-label="Dark theme" aria-pressed="false" title="Dark">◐</button><button type="button" class="sw" data-theme="sepia" aria-label="Sepia theme" aria-pressed="false" title="Sepia">◑</button><button type="button" class="sw" data-theme="midnight" aria-label="Midnight theme" aria-pressed="false" title="Midnight">✦</button><button type="button" class="sw" data-theme="forest" aria-label="Forest theme" aria-pressed="false" title="Forest">●</button></div>
+  <nav class="tabs" aria-label="Calculators">
+    <a class="tablink" href="bedtime-calculator.html">🌙 Bedtime</a>
+    <a class="tablink" href="wake-up-time-calculator.html" aria-current="page" style="background:linear-gradient(90deg,var(--primary),var(--secondary));color:#fff;border-color:transparent">☀️ Wake-Up</a>
+    <a class="tablink" href="nap-calculator.html">⏰ Nap</a>
+    <a class="tablink" href="shift-work-sleep-calculator.html">🏥 Shift Worker</a>
+    <a class="tablink" href="jetlag.html">✈️ Jet Lag Planner</a>
+  </nav>
+  <section class="mode active" id="mode-wake">
+    <h2>Wake-Up Time Calculator</h2>
+    <p class="sub">Pick when you're going to bed and we'll suggest wake-up times.</p>
+    <label for="wakeBed">Bedtime</label>
+    <input type="time" id="wakeBed" value="23:00">
+    <label class="check"><input type="checkbox" id="wakeSlow"> I take longer than 14 minutes to fall asleep</label>
+    <div id="wakeSlowWrap" class="hidden"><label for="wakeSlowSel">Time to fall asleep</label><select id="wakeSlowSel"></select></div>
+    <div class="results" id="wakeOut"></div>
+  </section>
+<section class="guide" aria-label="About this calculator">
+<p>Enter the time you plan to go to bed and the calculator adds your fall-asleep time and whole 90-minute cycles to show when you could wake up. It's useful for late nights, naps at odd hours and any time you can't choose your bedtime.</p>
+<h2>Worked example</h2>
+<p>For an 11:00 PM bedtime, assuming 14 minutes to fall asleep:</p>
+<table class="ex"><thead><tr><th>Wake up at</th><th>Cycles</th><th>Sleep</th></tr></thead><tbody><tr><td>3:44 AM</td><td>3 cycles</td><td>4.5 hours</td></tr><tr><td>5:14 AM</td><td>4 cycles</td><td>6 hours</td></tr><tr><td>6:44 AM</td><td>5 cycles</td><td>7.5 hours</td></tr><tr><td>8:14 AM</td><td>6 cycles</td><td>9 hours</td></tr></tbody></table>
+<h2>Why wake at the end of a cycle</h2>
+<p>Waking from deep sleep often brings sleep inertia, the groggy, slow feeling that usually fades within 15 to 30 minutes. Waking near the end of a cycle can reduce it, though total sleep matters more than exact timing.</p>
+<h2>If your alarm is fixed</h2>
+<p>If you must wake at a set time, use the bedtime calculator instead. Use this page when your bedtime is the fixed point, such as after a late event or a long trip home.</p>
+<h2>Frequently asked questions</h2>
+<h3>Is it better to wake between cycles?</h3>
+<p>It can help you feel more alert, but cycles are not identical every night. Getting enough total sleep is the bigger factor.</p>
+<h3>Why does the calculator add fall-asleep time?</h3>
+<p>Sleep does not start the moment you lie down. Adding 14 minutes by default keeps the wake-up times realistic, and you can enter a longer time if you take longer.</p>
+<h3>Why do I still feel tired after a full cycle count?</h3>
+<p>Sleep debt, alcohol, caffeine late in the day and an irregular schedule can all leave you tired. If it persists, talk to a doctor.</p>
+<h2>Related guides and tools</h2>
+<ul>
+<li><a href="waking-mid-cycle.html">Does waking mid-cycle make you groggy?</a></li>
+<li><a href="wake-up-feeling-refreshed.html">How to wake up feeling refreshed</a></li>
+<li><a href="how-sleep-cycles-work.html">How 90-minute sleep cycles work</a></li>
+<li><a href="caffeine-half-life-sleep.html">Caffeine and sleep</a></li>
+<li><a href="sleep-latency.html">What sleep latency means</a></li>
+</ul>
+<p>Results are estimates and general information, not medical advice. Talk to a doctor if you have ongoing sleep problems.</p>
+</section>
+</main>
+<footer class="foot"><nav><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="jetlag.html">Jet Lag Planner</a><a href="privacy.html#cookie-settings">Cookie settings</a></nav><p>For general information only. Not medical advice; talk to a doctor if you have ongoing sleep problems.</p></footer>
+
+<script>
+/* ===== HELPERS ===== */
+const CYCLE = 90, DEFAULT_FALL = 14;
+const $ = id => document.getElementById(id);
+
+// Turn "HH:MM" into a Date today; add minutes (handles midnight/noon rollovers automatically)
+function toDate(hhmm){ const [h,m] = hhmm.split(':').map(Number); const d = new Date(); d.setHours(h,m,0,0); return d; }
+function addMin(d, mins){ return new Date(d.getTime() + mins*60000); }
+// Consistent 12-hour format with AM/PM
+function fmt(d){ return d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true}); }
+function hoursLabel(c){ const h = c*1.5; return (Number.isInteger(h)?h:h.toFixed(1)) + ' hours'; }
+function fallTime(prefix){ return $(prefix+'Slow').checked ? Number($(prefix+'SlowSel').value) : DEFAULT_FALL; }
+function row(time, label, rec){ return `<div class="row ${rec?'rec':''}"><span><b>${time}</b> — ${label}</span>${rec?'<span class="badge">Recommended</span>':''}</div>`; }
+
+// Fill the fall-asleep dropdowns (15–60 min)
+['bedSlowSel','wakeSlowSel'].forEach(id=>{ if(!$(id)) return; $(id).innerHTML=[15,20,30,45,60].map(m=>`<option value="${m}">${m} minutes</option>`).join(''); });
+
+/* ===== MODE 1: BEDTIME (wake time -> bedtimes) ===== */
+function calcBed(){
+  const wake = toDate($('bedWake').value || '07:00'), f = fallTime('bed');
+  // Bedtime = wake - cycles*90 - fall-asleep time
+  $('bedOut').innerHTML = [6,5,4,3].map(c => row(fmt(addMin(wake, -(c*CYCLE + f))), `${c} cycles (${hoursLabel(c)})`, c>=5)).join('')
+    + `<p class="note">These times assume you fall asleep within ${f} minutes.</p>`;
+}
+
+/* ===== MODE 2: WAKE-UP (bedtime -> wake times) ===== */
+function calcWake(){
+  const bed = toDate($('wakeBed').value || '23:00'), f = fallTime('wake');
+  // Wake = bedtime + fall-asleep time + cycles*90
+  $('wakeOut').innerHTML = [3,4,5,6].map(c => row(fmt(addMin(bed, f + c*CYCLE)), `${c} cycles (${hoursLabel(c)})`, c>=5)).join('')
+    + `<p class="note">These times assume you fall asleep within ${f} minutes.</p>`;
+}
+
+/* ===== MODE 3: NAP PLANNER ===== */
+const NAPS = {
+  20:['Power Nap','Best for a quick alertness boost. Short enough to avoid deep sleep, so you skip the grogginess.'],
+  90:['Full Cycle Nap','Best for creativity, memory and a full reset. You pass through deep sleep and REM, then wake at a cycle end.'],
+  180:['Recovery Nap','Best for severe sleep debt (e.g. after a bad night). Covers two full cycles. Avoid it late in the day.']
+};
+function calcNap(){
+  const dur = Number($('napType').value), now = toDate($('napNow').value || '12:00');
+  // Wake = now + 14 min to fall asleep + nap duration
+  const wake = addMin(now, DEFAULT_FALL + dur), [name,why] = NAPS[dur];
+  $('napOut').innerHTML = row(fmt(wake), `wake-up after a ${name} (${dur>=60?dur/60+' h':dur+' min'})`, true)
+    + `<p class="note">Includes ${DEFAULT_FALL} minutes to fall asleep. Get into bed at ${fmt(now)}.</p><p><b>${name}:</b> ${why}</p>`;
+}
+
+/* ===== MODE 4: SHIFT WORKER ===== */
+function calcShift(){
+  const start = toDate($('shStart').value || '19:00'), len = Number($('shLen').value), com = Number($('shCom').value);
+  const after = document.querySelector('input[name=shWhen]:checked').value === 'after';
+  const WIND = 30, ROUTINE = 30, PERSONAL = 180;   // wind-down, wake-up routine, assumed meals/personal time (min)
+  const NAP = DEFAULT_FALL + CYCLE;                // one-cycle nap incl. fall-asleep time
+  // Off-duty window (assumes the same shift repeats daily): home + wound down -> must be up for next commute
+  const offStart = addMin(addMin(start, len*60), com + WIND);
+  const offEnd = addMin(start, 1440 - (com + ROUTINE));
+  const W = (offEnd - offStart) / 60000;
+  const single = Math.floor((W - PERSONAL - DEFAULT_FALL) / CYCLE); // full cycles fitting in one block
+  // "After" anchors sleep to the start of the window; "before" anchors it to the end
+  const block = c => after ? {b: offStart, w: addMin(offStart, DEFAULT_FALL + c*CYCLE)}
+                           : {b: addMin(offEnd, -(DEFAULT_FALL + c*CYCLE)), w: offEnd};
+  const line = (r, label, rec) => row(`${fmt(r.b)} → ${fmt(r.w)}`, label, rec);
+  let html = '';
+  if (single >= 5){
+    const top = Math.min(6, single);
+    html += line(block(top), `${top} cycles (${hoursLabel(top)})`, true);
+    if (top === 6) html += line(block(5), `5 cycles (${hoursLabel(5)})`, true);
+    html += `<p class="note">Off-duty window ≈ ${(W/60).toFixed(1)} h after commute, ${WIND}-min wind-down and ${ROUTINE}-min routine. Assumes ~3 h for meals and personal time.</p>`;
+  } else {
+    // Split sleep: main block + one-cycle nap at the opposite end of the window, so they can't overlap
+    const main = Math.max(1, Math.floor((W - PERSONAL - NAP - DEFAULT_FALL) / CYCLE));
+    const m = block(main);
+    const nap = after ? {b: addMin(offEnd, -NAP), w: offEnd} : {b: offStart, w: addMin(offStart, NAP)};
+    const clash = after ? nap.b < m.w : nap.w > m.b;
+    html += line(m, `Main sleep: ${main} cycle${main>1?'s':''} (${hoursLabel(main)})`, false);
+    html += line(nap, 'Nap: 1 cycle (1.5 hours)', false);
+    html += `<div class="warn">⚠️ Only ${main+1} cycle${main+1>1?'s':''} in total fit your off-duty window (${(W/60).toFixed(1)} h) — fewer than the 5 recommended.${clash?' The window is too tight for both blocks; prioritise the main sleep.':''}</div>`;
+    html += `<div class="tip">💡 Split sleep tip: ${after?'Sleep right after work, then nap just before you get up for your commute':'Take a short nap after you get home, then do your main sleep just before your shift'}. Keep the room dark and cool; blackout curtains help with daytime sleep.</div>`;
+  }
+  $('shOut').innerHTML = html;
+}
+
+/* ===== TABS (click + arrow keys / Home / End) ===== */
+const tabBtns = [...document.querySelectorAll('.tab')];
+function selectTab(t, focus){
+  tabBtns.forEach(x => { const on = x === t; x.classList.toggle('active', on); x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; });
+  document.querySelectorAll('.mode').forEach(m => m.classList.toggle('active', m.id === 'mode-' + t.dataset.mode));
+  if (focus) t.focus();
+}
+tabBtns.forEach((t, i) => {
+  t.addEventListener('click', () => selectTab(t));
+  t.addEventListener('keydown', e => {
+    const step = {ArrowRight:1, ArrowLeft:-1}[e.key];
+    if (step) { e.preventDefault(); selectTab(tabBtns[(i + step + tabBtns.length) % tabBtns.length], true); }
+    else if (e.key === 'Home') { e.preventDefault(); selectTab(tabBtns[0], true); }
+    else if (e.key === 'End') { e.preventDefault(); selectTab(tabBtns[tabBtns.length - 1], true); }
+  });
+});
+
+/* ===== EVENT WIRING ===== */
+[['bed',calcBed],['wake',calcWake]].forEach(([p,fn]) => {
+  if (!$(p+'Slow')) return;
+  $(p+'Slow').addEventListener('change', e => { $(p+'SlowWrap').classList.toggle('hidden', !e.target.checked); fn(); });
+});
+document.querySelectorAll('#mode-bed input,#mode-bed select').forEach(e => e.addEventListener('input', calcBed));
+document.querySelectorAll('#mode-wake input,#mode-wake select').forEach(e => e.addEventListener('input', calcWake));
+document.querySelectorAll('#mode-nap input,#mode-nap select').forEach(e => e.addEventListener('input', calcNap));
+document.querySelectorAll('#mode-shift input,#mode-shift select').forEach(e => e.addEventListener('input', calcShift));
+
+/* ===== THEMES (selection persisted in localStorage) ===== */
+const THEMES = ['light','dark','sepia','midnight','forest'];
+function setTheme(t){
+  if (!THEMES.includes(t)) t = 'light';
+  document.documentElement.dataset.theme = t;
+  document.querySelectorAll('.sw').forEach(b => b.setAttribute('aria-pressed', b.dataset.theme === t));
+  try { localStorage.setItem('sleepcalc-theme', t); } catch(e){}
+}
+let saved = null; try { saved = localStorage.getItem('sleepcalc-theme'); } catch(e){}
+setTheme(THEMES.includes(saved) ? saved : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+document.querySelectorAll('.sw').forEach(b => b.addEventListener('click', () => setTheme(b.dataset.theme)));
+
+/* ===== TAB SCROLL HINT: fade the right edge while more tabs are hidden ===== */
+const tabsEl = document.querySelector('.tabs');
+function tabHint(){ tabsEl.dataset.more = (tabsEl.scrollLeft + tabsEl.clientWidth < tabsEl.scrollWidth - 4) ? '1' : '0'; }
+tabsEl.addEventListener('scroll', tabHint); addEventListener('resize', tabHint); tabHint();
+
+/* ===== INIT ===== */
+const n = new Date(); if ($('napNow')) $('napNow').value = String(n.getHours()).padStart(2,'0') + ':' + String(n.getMinutes()).padStart(2,'0');
+[['bedOut',calcBed],['wakeOut',calcWake],['napOut',calcNap],['shOut',calcShift]].forEach(([id,f]) => { if ($(id)) f(); });
+</script>
+</body>
+</html>
