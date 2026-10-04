@@ -1,4 +1,4 @@
-User-agent: *
-Allow: /
+   User-agent: *
+   Allow: /
 
-Sitemap: https://circadianhub.com/sitemap-pages.xml
+   Sitemap: https://circadianhub.com/sitemap-pages.xml
