@@ -77,9 +77,24 @@ p{margin:0 0 12px}ul{margin:0 0 12px;padding-left:20px}li{margin-bottom:4px}
 .more{color:var(--primary);font-weight:600;font-size:.9rem}.note{background:var(--soft);border-radius:10px;padding:14px;margin:16px 0}
 table.t{width:100%;border-collapse:collapse;margin:12px 0 16px;font-size:.95rem}.t th,.t td{border-bottom:1px solid var(--border);padding:8px;text-align:left}
 .disc{border-top:1px solid var(--border);margin-top:28px;padding-top:14px;color:var(--muted);font-size:.9rem}
+
+.article-feature-image{aspect-ratio:16/9;object-fit:cover}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Caffeine and Sleep: How Long It Stays in Your System", "description": "How long caffeine stays in your body, what research says about late coffee and sleep, and how to set a cutoff time that fits your bedtime or night shift.", "mainEntityOfPage": "https://circadianhub.com/caffeine-half-life-sleep.html", "author": {"@type": "Organization", "name": "CircadianHub", "url": "https://circadianhub.com/"}, "publisher": {"@type": "Organization", "name": "CircadianHub", "url": "https://circadianhub.com/"}, "image": "https://circadianhub.com/images/caffeine-half-life-sleep.jpg", "datePublished": "2026-10-01", "dateModified": "2026-10-01"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://circadianhub.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://circadianhub.com/blog.html"}, {"@type": "ListItem", "position": 3, "name": "Caffeine and Sleep: How Long It Stays in Your System", "item": "https://circadianhub.com/caffeine-half-life-sleep.html"}]}</script>
+<style id="circadianhub-full-width-refresh">
+/* CircadianHub full-width WordPress-inspired layout refresh */
+:root{--site-max:1440px}
+html{width:100%;min-height:100%}
+body{width:100%;max-width:none;margin:0;padding:0}
+header,nav,footer,.site-header,.site-nav,.site-footer,.header,.footer{width:100%;max-width:none}
+main,.main,.content,.page-content,.site-content,.container,.wrap,.wrapper{width:100%;max-width:var(--site-max);margin-left:auto;margin-right:auto}
+.card,.article-card,.tool-card,.panel{max-width:min(1200px, calc(100% - 40px));margin-left:auto;margin-right:auto}
+article{width:100%;max-width:100%;}
+img,svg,video{max-width:100%;height:auto}
+@media(min-width:1200px){body{padding-left:0;padding-right:0}.site,.site-header,.site-footer{max-width:var(--site-max);margin-left:auto;margin-right:auto}.card{padding:clamp(24px,3vw,48px)}}
+@media(max-width:700px){.card,.article-card,.tool-card,.panel{max-width:calc(100% - 24px);padding:18px}body{padding-left:0;padding-right:0}}
+</style>
 </head>
 <body>
 <header class="site"><a href="/" class="ch-logo-link" aria-label="CircadianHub Homepage">
@@ -93,8 +108,8 @@ table.t{width:100%;border-collapse:collapse;margin:12px 0 16px;font-size:.95rem}
 <article>
 <p><a class="back" href="blog.html">&larr; All articles</a></p>
 <h1>Caffeine and Sleep: How Long Does It Stay in Your System?</h1>
+<img class="article-feature-image" src="images/caffeine-half-life-sleep.webp" alt="Illustrative image for caffeine half life sleep" width="1200" height="630" fetchpriority="high" decoding="async" style="display:block;width:100%;height:auto;max-height:520px;object-fit:cover;border-radius:12px;margin:18px 0 24px">
 <p class="meta"><span class="badge">Better Sleep</span> &nbsp;About 9 minutes to read</p>
-<img class="feature" src="images/caffeine-half-life-sleep.jpg" width="1200" height="630" alt="Caffeine and Sleep: How Long Does It Stay in Your System?" decoding="async" fetchpriority="high">
 <p>That afternoon coffee feels harmless. You drink it at 15:00, feel fine by evening and fall asleep at your usual time. So why do you wake at 03:00, or feel flat the next morning? Caffeine lasts far longer in the body than the buzz does, and it can reduce your sleep without you noticing. This guide explains how long caffeine stays in your system, what the research says, and how to choose a cutoff time that suits your own bedtime.</p>
 <h2>How caffeine works</h2>
 <p>While you are awake, a chemical called adenosine builds up in the brain and increases your pressure to sleep. Caffeine blocks the receptors adenosine uses, so you feel less sleepy. It does not remove tiredness or replace sleep. It masks the signal, and the adenosine keeps accumulating behind the scenes. Our <a href="coffee-nap-hack.html">coffee nap article</a> shows how this can be used on purpose.</p>
@@ -158,17 +173,7 @@ table.t{width:100%;border-collapse:collapse;margin:12px 0 16px;font-size:.95rem}
 <p id="sources"><small>Last updated: 1 October 2026. Links are general background reading from public-health organisations. <a href="about.html#sources">How we write and update our guides</a>.</small></p>
 <p class="disc"><strong>Medical disclaimer:</strong> This article is for general information only and is not medical advice. If you have persistent sleep problems, excessive daytime sleepiness, or concerns about caffeine and a health condition or medication, speak with a doctor or pharmacist.</p></article></main>
 
-<footer class="foot">
-  <nav>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Use</a>
-    <a href="about.html">About</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-    <a href="jetlag.html">Jet Lag Planner</a>
-    <button class="linkbtn" id="cookieSettings" type="button">Cookie settings</button>
-  </nav>
-  <p>&copy; circadianhub.com</p>
+<section class="visual-guide" aria-label="Visual guide"><h2>Quick visual guide</h2><img src="images/caffeine-cutoff-timeline.svg" alt="Timeline illustrating a possible caffeine cutoff about eight hours before bedtime." width="1000" height="420" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:14px"></section>
 </footer>
 
 <!-- ===== COOKIE CONSENT BANNER ===== -->
@@ -181,6 +186,19 @@ table.t{width:100%;border-collapse:collapse;margin:12px 0 16px;font-size:.95rem}
     </div>
   </div>
 </div>
+<footer class="foot">
+  <nav>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="jetlag.html">Jet Lag Planner</a>
+    <button class="linkbtn" id="cookieSettings" type="button">Cookie settings</button>
+  </nav>
+  <p>&copy; circadianhub.com</p>
+
+
 
 <!--
   ===== USING A CERTIFIED CMP INSTEAD OF THE CUSTOM BANNER =====

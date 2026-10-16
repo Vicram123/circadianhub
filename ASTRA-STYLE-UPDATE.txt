@@ -1,0 +1,7 @@
+CircadianHub Astra-inspired layout update
+
+- Blog grid: four columns on wide desktop, three on medium screens, two on tablets, one on small phones.
+- Jet Lag Planner: updated to match the shared full-width header, navigation, page surface, and footer.
+- Sleep article pages: added a relevant feature image where an image was not already present, with descriptive alt text and responsive sizing.
+
+This is an Astra-inspired design direction, not the Astra WordPress theme itself. This site remains a static HTML website. Review every feature image/alt text for relevance, then test all pages on desktop and mobile before deployment.

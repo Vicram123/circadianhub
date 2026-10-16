@@ -69,6 +69,19 @@ p{margin:0 0 12px}ul{margin:0 0 12px;padding-left:20px}li{margin-bottom:4px}
 .btn.alt{background:transparent;color:var(--text);border-color:var(--border)}
 @media(max-width:600px){.glance{grid-template-columns:1fr}.btns{width:100%}.btn{flex:1}}
 </style>
+<style id="circadianhub-full-width-refresh">
+/* CircadianHub full-width WordPress-inspired layout refresh */
+:root{--site-max:1440px}
+html{width:100%;min-height:100%}
+body{width:100%;max-width:none;margin:0;padding:0}
+header,nav,footer,.site-header,.site-nav,.site-footer,.header,.footer{width:100%;max-width:none}
+main,.main,.content,.page-content,.site-content,.container,.wrap,.wrapper{width:100%;max-width:var(--site-max);margin-left:auto;margin-right:auto}
+.card,.article-card,.tool-card,.panel{max-width:min(1200px, calc(100% - 40px));margin-left:auto;margin-right:auto}
+article{width:100%;max-width:100%;}
+img,svg,video{max-width:100%;height:auto}
+@media(min-width:1200px){body{padding-left:0;padding-right:0}.site,.site-header,.site-footer{max-width:var(--site-max);margin-left:auto;margin-right:auto}.card{padding:clamp(24px,3vw,48px)}}
+@media(max-width:700px){.card,.article-card,.tool-card,.panel{max-width:calc(100% - 24px);padding:18px}body{padding-left:0;padding-right:0}}
+</style>
 </head>
 <body>
 <header class="site"><a href="/" class="ch-logo-link" aria-label="CircadianHub Homepage">

@@ -5,13 +5,13 @@
 <meta name="google-adsense-account" content="ca-pub-5810682779564104">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sleep Calculator: Bedtime &amp; Wake-Up Times | CircadianHub</title>
-<meta name="description" content="Free sleep calculator that finds your best bedtime or wake-up time using 90-minute sleep cycles. Also plan naps, shift work sleep and jet lag.">
+<meta name="description" content="Plan a bedtime or wake-up time with a simple sleep calculator, and explore tools for naps, shift work, and jet lag. Sleep-cycle timing is an estimate, not a prediction.">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://circadianhub.com/">
 <meta property="og:url" content="https://circadianhub.com/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
 <meta property="og:title" content="Sleep Calculator: Bedtime &amp; Wake-Up Times | CircadianHub">
-<meta property="og:description" content="Free sleep calculator that finds your best bedtime or wake-up time using 90-minute sleep cycles. Also plan naps, shift work sleep and jet lag.">
+<meta property="og:description" content="Plan a bedtime or wake-up time with a simple sleep calculator, and explore tools for naps, shift work, and jet lag. Sleep-cycle timing is an estimate, not a prediction.">
 <meta property="og:image" content="https://circadianhub.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -75,6 +75,20 @@ input[type=time],select{width:100%;padding:10px 12px;font-size:1rem;border:1px s
 .seo a{color:var(--primary)}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CircadianHub Sleep Calculator","url":"https://circadianhub.com/","applicationCategory":"HealthApplication","operatingSystem":"Any","description":"Free sleep calculator that finds bedtimes and wake-up times based on 90-minute sleep cycles, plus nap, shift work and jet lag planners.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<style>@media(max-width:700px){.home-intro{grid-template-columns:1fr!important;padding:1rem!important}.home-intro img{order:-1}.quick-visual-guide{margin:1rem 0!important}}</style>
+<style id="circadianhub-full-width-refresh">
+/* CircadianHub full-width WordPress-inspired layout refresh */
+:root{--site-max:1440px}
+html{width:100%;min-height:100%}
+body{width:100%;max-width:none;margin:0;padding:0}
+header,nav,footer,.site-header,.site-nav,.site-footer,.header,.footer{width:100%;max-width:none}
+main,.main,.content,.page-content,.site-content,.container,.wrap,.wrapper{width:100%;max-width:var(--site-max);margin-left:auto;margin-right:auto}
+.card,.article-card,.tool-card,.panel{max-width:min(1200px, calc(100% - 40px));margin-left:auto;margin-right:auto}
+article{width:100%;max-width:100%;}
+img,svg,video{max-width:100%;height:auto}
+@media(min-width:1200px){body{padding-left:0;padding-right:0}.site,.site-header,.site-footer{max-width:var(--site-max);margin-left:auto;margin-right:auto}.card{padding:clamp(24px,3vw,48px)}}
+@media(max-width:700px){.card,.article-card,.tool-card,.panel{max-width:calc(100% - 24px);padding:18px}body{padding-left:0;padding-right:0}}
+</style>
 </head>
 <body>
 <header class="site"><a href="/" class="ch-logo-link" aria-label="CircadianHub Homepage">
@@ -83,11 +97,16 @@ input[type=time],select{width:100%;padding:10px 12px;font-size:1rem;border:1px s
     <!-- Styled Brand Typography Text -->
     <span class="ch-logo-text">Circadian<span>Hub</span></span>
 </a></header>
+<section class="home-intro" style="max-width:1100px;margin:1.5rem auto 1rem;padding:1.5rem 1rem;display:grid;grid-template-columns:1.2fr .8fr;gap:1.5rem;align-items:center">
+<div><p class="eyebrow">SLEEP BETTER. LIVE IN RHYTHM.</p><h1 style="font-size:clamp(2rem,5vw,3.4rem);line-height:1.08;margin:.3rem 0 1rem">Understand your body clock.</h1><p style="font-size:1.1rem;max-width:42rem">Practical guides and interactive tools to help you understand sleep, light, caffeine, and daily rhythms.</p><p><a class="tablink" href="#sleep-tools">Explore sleep tools →</a> <a class="tablink" href="blog.html">Read the blog →</a></p></div>
+<img src="images/morning-bedroom-original.webp" alt="Soft morning sunlight falling across a peaceful bedroom" width="900" height="600" fetchpriority="high" style="width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:1rem">
+</section>
 <main class="card">
-  <h1 class="sr-only">Sleep Calculator: Find Your Best Bedtime and Wake-Up Time</h1>
+  <h2 class="sr-only">Sleep Calculator: Find Your Best Bedtime and Wake-Up Time</h2>
   <div class="top" role="group" aria-label="Color theme"><button type="button" class="sw" data-theme="light" aria-label="Light theme" aria-pressed="false" title="Light">☀</button><button type="button" class="sw" data-theme="dark" aria-label="Dark theme" aria-pressed="false" title="Dark">◐</button><button type="button" class="sw" data-theme="sepia" aria-label="Sepia theme" aria-pressed="false" title="Sepia">◑</button><button type="button" class="sw" data-theme="midnight" aria-label="Midnight theme" aria-pressed="false" title="Midnight">✦</button><button type="button" class="sw" data-theme="forest" aria-label="Forest theme" aria-pressed="false" title="Forest">●</button></div>
 
   <!-- TABS -->
+  <section id="sleep-tools" aria-label="Sleep tools"><h2>Find the right tool for you</h2><p>Choose a calculator or planner to get started.</p></section>
   <nav class="tabs" role="tablist" aria-label="Calculator modes">
     <button class="tab active" role="tab" id="tab-bed" aria-controls="mode-bed" aria-selected="true" tabindex="0" data-mode="bed">🌙 Bedtime</button>
     <button class="tab" role="tab" id="tab-wake" aria-controls="mode-wake" aria-selected="false" tabindex="-1" data-mode="wake">☀️ Wake-Up</button>
@@ -165,8 +184,11 @@ input[type=time],select{width:100%;padding:10px 12px;font-size:1rem;border:1px s
 <h3>How much sleep do you need?</h3>
 <p>Most adults do best with seven to nine hours, with teenagers and children needing more. Use the calculator as a starting point, then adjust by 15 to 30 minutes based on how you feel after a week. Our guide to <a href="how-much-sleep-do-you-need.html">how much sleep you need</a> lists the ranges by age. The results are estimates and general information, not medical advice.</p>
 </section>
+
+<section class="original-photo-strip" aria-labelledby="photo-strip-title" style="margin:2rem 0"><h2 id="photo-strip-title">Sleep, light and daily rhythms</h2><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem"><figure><img src="images/morning-bedroom-original.webp" alt="Morning sunlight falling across a calm bedroom" loading="lazy" width="285" height="235" style="width:100%;height:auto;border-radius:12px"><figcaption>Morning bedroom light</figcaption></figure><figure><img src="images/alarm-clock-original.webp" alt="Digital alarm clock on a bedside table showing 6:30" loading="lazy" width="289" height="235" style="width:100%;height:auto;border-radius:12px"><figcaption>Wake-up routines</figcaption></figure><figure><img src="images/night-shift-worker-original.webp" alt="Healthcare worker resting during a night-shift break" loading="lazy" width="288" height="235" style="width:100%;height:auto;border-radius:12px"><figcaption>Shift-work recovery</figcaption></figure></div></section>
+<section class="quick-visual-guide" aria-labelledby="quick-visual-title" style="margin:2rem 0;padding:clamp(1rem,3vw,2rem);border-radius:1.25rem;background:#f4faf8;color:#234b4a"><h2 id="quick-visual-title">Quick Visual Guide</h2><h3>A gradual jet-lag adjustment plan</h3><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin:1.5rem 0"><div><strong>Before travel</strong><p>Shift your schedule gradually if practical.</p></div><div><strong>Arrival day</strong><p>Use local meal and sleep times.</p></div><div><strong>First few days</strong><p>Time light exposure to the destination clock.</p></div><div><strong>Build rhythm</strong><p>Keep wake time consistent where possible.</p></div></div><p>Light timing depends on travel direction and time-zone difference. For a personalized starting point, use the <a href="jetlag.html">Jet Lag Planner</a>.</section>
 </main>
-<footer class="foot"><nav><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="jetlag.html">Jet Lag Planner</a><a href="privacy.html#cookie-settings">Cookie settings</a></nav><p>For general information only. Not medical advice; talk to a doctor if you have ongoing sleep problems.</p></footer>
+<footer class="foot"><nav><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="jetlag.html">Jet Lag Planner</a><a href="sleep-debt-calculator.html">Sleep Debt Calculator</a><a href="sleep-schedule-checklist.html">Sleep Schedule Checklist</a><a href="privacy.html#cookie-settings">Cookie settings</a></nav><p>For general information only. Not medical advice; talk to a doctor if you have ongoing sleep problems.</p></footer>
 
 <script>
 /* ===== HELPERS ===== */

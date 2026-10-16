@@ -74,9 +74,24 @@ input[type=time],select{width:100%;padding:10px 12px;font-size:1rem;border:1px s
 .foot nav{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 .ex{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:.9rem}.ex th,.ex td{border:1px solid var(--border);padding:6px 10px;text-align:left}.ex th{background:var(--soft);color:var(--text)}.guide ul{padding-left:20px}
 .seo a{color:var(--primary)}
+
+.article-feature-image{aspect-ratio:16/9;object-fit:cover}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Wake-Up Time Calculator", "url": "https://circadianhub.com/wake-up-time-calculator.html", "applicationCategory": "HealthApplication", "operatingSystem": "Any", "description": "Going to bed soon? Enter your bedtime to see wake-up times at the end of a sleep cycle, so you're less likely to wake up groggy.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is it better to wake between cycles?", "acceptedAnswer": {"@type": "Answer", "text": "It can help you feel more alert, but cycles are not identical every night. Getting enough total sleep is the bigger factor."}}, {"@type": "Question", "name": "Why does the calculator add fall-asleep time?", "acceptedAnswer": {"@type": "Answer", "text": "Sleep does not start the moment you lie down. Adding 14 minutes by default keeps the wake-up times realistic, and you can enter a longer time if you take longer."}}, {"@type": "Question", "name": "Why do I still feel tired after a full cycle count?", "acceptedAnswer": {"@type": "Answer", "text": "Sleep debt, alcohol, caffeine late in the day and an irregular schedule can all leave you tired. If it persists, talk to a doctor."}}]}</script>
+<style id="circadianhub-full-width-refresh">
+/* CircadianHub full-width WordPress-inspired layout refresh */
+:root{--site-max:1440px}
+html{width:100%;min-height:100%}
+body{width:100%;max-width:none;margin:0;padding:0}
+header,nav,footer,.site-header,.site-nav,.site-footer,.header,.footer{width:100%;max-width:none}
+main,.main,.content,.page-content,.site-content,.container,.wrap,.wrapper{width:100%;max-width:var(--site-max);margin-left:auto;margin-right:auto}
+.card,.article-card,.tool-card,.panel{max-width:min(1200px, calc(100% - 40px));margin-left:auto;margin-right:auto}
+article{width:100%;max-width:100%;}
+img,svg,video{max-width:100%;height:auto}
+@media(min-width:1200px){body{padding-left:0;padding-right:0}.site,.site-header,.site-footer{max-width:var(--site-max);margin-left:auto;margin-right:auto}.card{padding:clamp(24px,3vw,48px)}}
+@media(max-width:700px){.card,.article-card,.tool-card,.panel{max-width:calc(100% - 24px);padding:18px}body{padding-left:0;padding-right:0}}
+</style>
 </head>
 <body>
 <header class="site"><a href="/" class="ch-logo-link" aria-label="CircadianHub Homepage">
@@ -87,6 +102,8 @@ input[type=time],select{width:100%;padding:10px 12px;font-size:1rem;border:1px s
 </a></header>
 <main class="card">
   <h1 style="font-size:1.35rem;margin:0 0 12px">Wake-Up Time Calculator: When Should You Wake Up?</h1>
+<img class="article-feature-image" src="images/sleeping-person-original.webp" alt="Illustrative image for wake up time calculator" width="1200" height="630" fetchpriority="high" decoding="async" style="display:block;width:100%;height:auto;max-height:520px;object-fit:cover;border-radius:12px;margin:18px 0 24px">
+
   <div class="top" role="group" aria-label="Color theme"><button type="button" class="sw" data-theme="light" aria-label="Light theme" aria-pressed="false" title="Light">☀</button><button type="button" class="sw" data-theme="dark" aria-label="Dark theme" aria-pressed="false" title="Dark">◐</button><button type="button" class="sw" data-theme="sepia" aria-label="Sepia theme" aria-pressed="false" title="Sepia">◑</button><button type="button" class="sw" data-theme="midnight" aria-label="Midnight theme" aria-pressed="false" title="Midnight">✦</button><button type="button" class="sw" data-theme="forest" aria-label="Forest theme" aria-pressed="false" title="Forest">●</button></div>
   <nav class="tabs" aria-label="Calculators">
     <a class="tablink" href="bedtime-calculator.html">🌙 Bedtime</a>

@@ -5,11 +5,11 @@
 <meta name="google-adsense-account" content="ca-pub-5810682779564104">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jet Lag Planner — Free Travel Sleep Schedule Calculator</title>
-<meta name="description" content="Free jet lag planner. Enter your flight details and get a personalized light, sleep, meal, and caffeine schedule to help adjust to a new time zone.">
+<meta name="description" content="Create an estimated sleep, light, meal, and caffeine plan for a time-zone change. Recommendations are general planning guidance, not flight information or medical advice.">
 <meta name="theme-color" content="#0F172A">
 <meta name="robots" content="index,follow">
 <meta property="og:title" content="Jet Lag Planner — Free Travel Sleep Schedule Calculator">
-<meta property="og:description" content="Plan sleep, light, meals, and caffeine around your next long-distance flight.">
+<meta property="og:description" content="Create an estimated sleep, light, meal, and caffeine plan for a time-zone change. Recommendations are general planning guidance, not flight information or medical advice.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://circadianhub.com/jetlag.html">
 <meta property="og:image" content="https://circadianhub.com/og-image.png">
@@ -47,7 +47,7 @@ a{color:var(--primary)}
 .foot{max-width:700px;margin:0 auto 24px;text-align:center;color:var(--muted);font-size:.85rem}.foot a{color:var(--primary);font-weight:600}.foot p{margin:6px 0 0}
 .foot nav{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 .card{background:transparent;margin:20px 0}
-h2{font-size:1.15rem;margin:0 0 12px}
+h2{font-size:1.15rem;margin:0 0 12px; text-align:center}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .field label{display:block;font-weight:600;font-size:.9rem;margin-bottom:6px}
 input,select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font:inherit;outline:none}
@@ -121,7 +121,7 @@ input:focus,select:focus{border-color:var(--primary);box-shadow:0 0 0 3px color-
   #results>*:not(#printCard){display:none!important}
   #printCard{display:block!important;font:11px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;color:#000;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .pc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;border-bottom:2px solid #000;padding-bottom:8px;margin-bottom:10px}
-  .pc-head h2{font-size:20px;margin:0}.pc-route{margin:2px 0 0;font-size:13px;font-weight:700}
+  .pc-head h2{font-size:20px;margin:0; }.pc-route{margin:2px 0 0;font-size:13px;font-weight:700}
   .pc-brand{text-align:right;font-weight:800}.pc-brand small{font-weight:400;color:#444}
   .pc-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:8px}
   .pc-stat{border:1px solid #999;border-radius:6px;padding:5px 7px;background:#f2f2f2}
@@ -140,6 +140,36 @@ input:focus,select:focus{border-color:var(--primary);box-shadow:0 0 0 3px color-
   .pc-safe{border:1px solid #000;border-radius:6px;padding:6px 8px;margin-top:12px;font-size:10px;break-inside:avoid}
   .pc-foot{margin-top:8px;text-align:center;color:#444;font-size:9.5px}
 }
+
+/* Astra-inspired full-width site shell shared with the blog */
+body{padding:0!important}
+.site{max-width:1440px!important;width:calc(100% - 48px)!important;margin:0 auto!important;padding:18px 0 8px!important; text-align:center}
+.menu{max-width:1440px!important;width:calc(100% - 48px)!important;margin:8px auto 20px!important;justify-content:flex-start!important}
+.page{max-width:1440px!important;width:calc(100% - 48px)!important;box-sizing:border-box;margin:20px auto 28px!important;padding:clamp(30px,4.2vw,64px)!important;border:1px solid var(--border);border-radius:14px;box-shadow:0 3px 18px rgba(15,23,42,.06)}
+.foot{max-width:1440px!important;width:calc(100% - 48px)!important;margin:0 auto 24px!important}
+@media(max-width:700px){.site,.menu,.page,.foot{width:calc(100% - 24px)!important}.page{padding:22px 18px!important}}
+
+
+/* Shared Astra-inspired planner layout */
+.menu{width:100%;max-width:1440px;margin:0 auto 18px;padding:12px 24px;display:flex;gap:22px;justify-content:center;flex-wrap:wrap;border-bottom:1px solid var(--border)}
+.menu a{color:var(--text);font-weight:600;text-decoration:none}.menu a:hover{color:var(--primary)}
+.planner-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.9fr);gap:clamp(22px,4vw,56px);align-items:center;margin:8px 0 30px;padding:clamp(8px,2vw,22px) 0 26px;border-bottom:1px solid var(--border)}
+.planner-intro-copy{min-width:0}.planner-intro .eyebrow{font-size:.76rem;font-weight:800;letter-spacing:.12em;color:var(--primary);margin:0 0 10px}.planner-intro .lede-h{font-size:clamp(2rem,4vw,3.2rem);line-height:1.08;margin:0 0 14px}.planner-intro .lede{font-size:1.08rem;line-height:1.7;margin:0;max-width:54ch}.planner-intro-image{display:block;width:100%;height:100%;max-height:360px;min-height:230px;object-fit:cover;border-radius:16px}.foot{max-width:1440px;width:calc(100% - 48px);margin:32px auto 24px;padding:26px 18px;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:.9rem}.foot nav{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}.foot a{color:var(--primary);font-weight:600;text-decoration:none}.foot p{margin:12px 0 0}
+@media(max-width:760px){.planner-intro{grid-template-columns:1fr}.planner-intro-image{min-height:190px;max-height:260px;grid-row:1}.menu{justify-content:flex-start;gap:14px;padding:10px 16px}.foot{width:calc(100% - 24px)}}
+
+</style>
+<style id="circadianhub-full-width-refresh">
+/* CircadianHub full-width WordPress-inspired layout refresh */
+:root{--site-max:1440px}
+html{width:100%;min-height:100%}
+body{width:100%;max-width:none;margin:0;padding:0}
+header,nav,footer,.site-header,.site-nav,.site-footer,.header,.footer{width:100%;max-width:none; align-items:center;justify-content:center; padding: 18px;box-sizing:border-box}
+main,.main,.content,.page-content,.site-content,.container,.wrap,.wrapper{width:100%;max-width:var(--site-max);margin-left:auto;margin-right:auto}
+.card,.article-card,.tool-card,.panel{max-width:min(1200px, calc(100% - 40px));margin-left:auto;margin-right:auto}
+article{width:100%;max-width:100%;}
+img,svg,video{max-width:100%;height:auto; padding: 15px; box-shadow: 0 4px 20px rgba(0,0,0,.08); border-radius: 12px; background: var(--surface2)}
+@media(min-width:1200px){body{padding-left:0;padding-right:0}.site,.site-header,.site-footer{max-width:var(--site-max);margin-left:auto;margin-right:auto}.card{padding:clamp(24px,3vw,48px)}}
+@media(max-width:700px){.card,.article-card,.tool-card,.panel{max-width:calc(100% - 24px);padding:18px}body{padding-left:0;padding-right:0}}
 </style>
 </head>
 <body>
@@ -149,10 +179,6 @@ input:focus,select:focus{border-color:var(--primary);box-shadow:0 0 0 3px color-
     <!-- Styled Brand Typography Text -->
     <span class="ch-logo-text">Circadian<span>Hub</span></span>
 </a></header>
-
-<main class="page">
-<h1 class="sr-only">Jet Lag Planner</h1>
-<div class="top" role="group" aria-label="Color theme"><button type="button" class="sw" data-theme="light" aria-label="Light theme" aria-pressed="false" title="Light">☀</button><button type="button" class="sw" data-theme="dark" aria-label="Dark theme" aria-pressed="false" title="Dark">◐</button><button type="button" class="sw" data-theme="sepia" aria-label="Sepia theme" aria-pressed="false" title="Sepia">◑</button><button type="button" class="sw" data-theme="midnight" aria-label="Midnight theme" aria-pressed="false" title="Midnight">✦</button><button type="button" class="sw" data-theme="forest" aria-label="Forest theme" aria-pressed="false" title="Forest">●</button></div>
 <nav class="tabs" aria-label="Calculator modes">
 <a class="tab" href="index.html#bed">🌙 Bedtime</a>
 <a class="tab" href="index.html#wake">☀️ Wake-Up</a>
@@ -160,8 +186,18 @@ input:focus,select:focus{border-color:var(--primary);box-shadow:0 0 0 3px color-
 <a class="tab" href="index.html#shift">🏥 Shift Worker</a>
 <a class="tab active" href="jetlag.html" aria-current="page">✈️ Jet Lag Planner</a>
 </nav>
-<h2 class="lede-h">✈️ Jet Lag Planner</h2>
-<p class="lede">Plan sleep, light, meals, and caffeine around a long-distance flight. The schedule is an educational planning aid, not medical advice.</p>
+<main class="page">
+<h2 class="sr-only">Jet Lag Planner</h2>
+<div class="top" role="group" aria-label="Color theme"><button type="button" class="sw" data-theme="light" aria-label="Light theme" aria-pressed="false" title="Light">☀</button><button type="button" class="sw" data-theme="dark" aria-label="Dark theme" aria-pressed="false" title="Dark">◐</button><button type="button" class="sw" data-theme="sepia" aria-label="Sepia theme" aria-pressed="false" title="Sepia">◑</button><button type="button" class="sw" data-theme="midnight" aria-label="Midnight theme" aria-pressed="false" title="Midnight">✦</button><button type="button" class="sw" data-theme="forest" aria-label="Forest theme" aria-pressed="false" title="Forest">●</button></div>
+
+<section class="planner-intro" aria-labelledby="planner-title">
+  <div class="planner-intro-copy">
+    <p class="eyebrow">TRAVEL WELL · SLEEP IN RHYTHM</p>
+    <h1 id="planner-title" class="lede-h">✈️ Jet Lag Planner</h1>
+    <p class="lede">Plan sleep, light, meals, and caffeine around a long-distance flight. Build a practical schedule for your destination and travel dates. This planner is an educational aid, not medical advice.</p> <p class="note">Airport suggestions use public airport data when available and a built-in fallback if it cannot load. This planner does not provide flight schedules or verify airport operating status; confirm airport details and travel times with your airline or airport.</p>
+  </div>
+  <img class="planner-intro-image" src="images/jet-lag-travel-thumbnail.webp" alt="Airplane wing above clouds in warm sunrise light, representing long-distance travel and jet lag planning" width="1200" height="630" fetchpriority="high" decoding="async">
+</section>
 
 <section id="tripCard" aria-labelledby="trip-heading">
 <h2 id="trip-heading" class="sr-only">Your trip</h2>
@@ -267,15 +303,18 @@ input:focus,select:focus{border-color:var(--primary);box-shadow:0 0 0 3px color-
 </main>
 
 
+<section class="visual-guide" aria-label="Visual guide"><h2>Quick visual guide</h2><img src="images/jet-lag-adjustment-timeline.svg" alt="Four-step timeline for gradually adjusting to a destination time zone." width="1000" height="420" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:14px"></section>
 <footer class="foot"><nav><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="jetlag.html">Jet Lag Planner</a><a href="privacy.html#cookie-settings">Cookie settings</a></nav><p>For general information only. Not medical advice; talk to a doctor if you have ongoing sleep problems.</p><p>© <span id="year"></span> CircadianHub</p></footer>
 
 <script>
+
 /* -----------------------------
    CircadianHub Jet Lag Planner
    ----------------------------- */
 
 /* Major-city database. Time zones are IANA identifiers. */
 const CITIES = {
+"Abuja":"Africa/Lagos","Kano":"Africa/Lagos","Port Harcourt":"Africa/Lagos","Enugu":"Africa/Lagos","Benin City":"Africa/Lagos","Ibadan":"Africa/Lagos","Kaduna":"Africa/Lagos","Maiduguri":"Africa/Lagos","Uyo":"Africa/Lagos","Owerri":"Africa/Lagos","Accra":"Africa/Accra","Abidjan":"Africa/Abidjan","Addis Ababa":"Africa/Addis_Ababa","Windhoek":"Africa/Windhoek","Lomé":"Africa/Lome","Bamako":"Africa/Bamako","Freetown":"Africa/Freetown","Monrovia":"Africa/Monrovia","Yaoundé":"Africa/Douala","Libreville":"Africa/Libreville","Brazzaville":"Africa/Brazzaville","Kinshasa":"Africa/Kinshasa","Luanda":"Africa/Luanda","Mauritius":"Indian/Mauritius","Algiers":"Africa/Algiers","Washington":"America/New_York","Edmonton":"America/Edmonton","Guadalajara":"America/Mexico_City","Cancún":"America/Cancun","San José":"America/Costa_Rica","San Salvador":"America/El_Salvador","Port of Spain":"America/Port_of_Spain","Brasília":"America/Sao_Paulo","Fortaleza":"America/Fortaleza","Manaus":"America/Manaus","Belém":"America/Belem","Asunción":"America/Asuncion","Medellín":"America/Bogota","Cali":"America/Bogota","Thimphu":"Asia/Thimphu","Kabul":"Asia/Kabul","Tashkent":"Asia/Tashkent","Almaty":"Asia/Almaty","Manama":"Asia/Bahrain","Amman":"Asia/Amman","Ho Chi Minh City":"Asia/Ho_Chi_Minh","Phnom Penh":"Asia/Phnom_Penh","Vientiane":"Asia/Vientiane","Phuket":"Asia/Bangkok","Chiang Mai":"Asia/Bangkok","Bali":"Asia/Makassar","Darwin":"Australia/Darwin","Christchurch":"Pacific/Auckland","Fiji":"Pacific/Fiji","Birmingham":"Europe/London","Bristol":"Europe/London","Nice":"Europe/Paris","Lyon":"Europe/Paris","Naples":"Europe/Rome","Florence":"Europe/Rome","Hamburg":"Europe/Berlin","Düsseldorf":"Europe/Berlin","Cologne":"Europe/Berlin","Stuttgart":"Europe/Berlin","Gothenburg":"Europe/Stockholm","Malmö":"Europe/Stockholm","Bergen":"Europe/Oslo","Trondheim":"Europe/Oslo","Turku":"Europe/Helsinki","Tampere":"Europe/Helsinki","Oulu":"Europe/Helsinki","Kaunas":"Europe/Vilnius","Gdansk":"Europe/Warsaw","Krakow":"Europe/Warsaw","Wroclaw":"Europe/Warsaw","Cluj-Napoca":"Europe/Bucharest","Split":"Europe/Zagreb","Dubrovnik":"Europe/Zagreb","Podgorica":"Europe/Podgorica","Larnaca":"Asia/Nicosia","Paphos":"Asia/Nicosia","Malta":"Europe/Malta","Gran Canaria":"Atlantic/Canary","Tenerife":"Atlantic/Canary","Funchal":"Atlantic/Madeira","Ponta Delgada":"Atlantic/Azores",
 "Amsterdam":"Europe/Amsterdam","Athens":"Europe/Athens","Auckland":"Pacific/Auckland","Baghdad":"Asia/Baghdad",
 "Bangkok":"Asia/Bangkok","Barcelona":"Europe/Madrid","Beijing":"Asia/Shanghai","Beirut":"Asia/Beirut",
 "Belgrade":"Europe/Belgrade","Berlin":"Europe/Berlin","Bogotá":"America/Bogota","Boston":"America/New_York",
@@ -358,31 +397,210 @@ let savedTheme=null;try{savedTheme=localStorage.getItem("sleepcalc-theme")}catch
 setTheme(THEMES.includes(savedTheme)?savedTheme:(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));
 document.querySelectorAll(".top [data-theme]").forEach(b=>b.addEventListener("click",()=>setTheme(b.dataset.theme)));
 
-/* City autocomplete. */
+/* Airport autocomplete is backed by the worldwide OurAirports catalogue loaded below. */
+const AIRPORTS = [
+  ["Helsinki Airport", "HEL", "Helsinki"], ["Stockholm Arlanda Airport", "ARN", "Stockholm"],
+  ["Copenhagen Airport", "CPH", "Copenhagen"], ["Oslo Airport", "OSL", "Oslo"], ["London Heathrow Airport", "LHR", "London"],
+  ["London Gatwick Airport", "LGW", "London"], ["Paris Charles de Gaulle Airport", "CDG", "Paris"], ["Paris Orly Airport", "ORY", "Paris"],
+  ["Amsterdam Schiphol Airport", "AMS", "Amsterdam"], ["Frankfurt Airport", "FRA", "Frankfurt"], ["Munich Airport", "MUC", "Munich"],
+  ["Madrid-Barajas Airport", "MAD", "Madrid"], ["Barcelona-El Prat Airport", "BCN", "Barcelona"], ["Rome Fiumicino Airport", "FCO", "Rome"],
+  ["Istanbul Airport", "IST", "Istanbul"], ["Dubai International Airport", "DXB", "Dubai"], ["Doha Hamad Airport", "DOH", "Doha"],
+  ["Singapore Changi Airport", "SIN", "Singapore"], ["Tokyo Haneda Airport", "HND", "Tokyo"], ["Tokyo Narita Airport", "NRT", "Tokyo"],
+  ["Hong Kong International Airport", "HKG", "Hong Kong"], ["Seoul Incheon Airport", "ICN", "Seoul"], ["Bangkok Suvarnabhumi Airport", "BKK", "Bangkok"],
+  ["Delhi Indira Gandhi Airport", "DEL", "Delhi"], ["Mumbai Chhatrapati Shivaji Airport", "BOM", "Mumbai"], ["Sydney Airport", "SYD", "Sydney"],
+  ["Melbourne Airport", "MEL", "Melbourne"], ["Auckland Airport", "AKL", "Auckland"], ["Los Angeles International Airport", "LAX", "Los Angeles"],
+  ["San Francisco International Airport", "SFO", "San Francisco"], ["John F. Kennedy International Airport", "JFK", "New York"], ["Newark Liberty Airport", "EWR", "New York"],
+  ["Chicago O'Hare Airport", "ORD", "Chicago"], ["Boston Logan Airport", "BOS", "Boston"], ["Toronto Pearson Airport", "YYZ", "Toronto"],
+  ["Vancouver International Airport", "YVR", "Vancouver"], ["Mexico City International Airport", "MEX", "Mexico City"], ["São Paulo Guarulhos Airport", "GRU", "São Paulo"],
+  ["Cape Town International Airport", "CPT", "Cape Town"], ["Johannesburg O. R. Tambo Airport", "JNB", "Johannesburg"], ["Nairobi Jomo Kenyatta Airport", "NBO", "Nairobi"],
+  ["Lisbon Airport", "LIS", "Lisbon"], ["Zurich Airport", "ZRH", "Zurich"], ["Vienna International Airport", "VIE", "Vienna"],
+  ["Brussels Airport", "BRU", "Brussels"], ["Prague Airport", "PRG", "Prague"], ["Warsaw Chopin Airport", "WAW", "Warsaw"],
+  ["Reykjavik Keflavik Airport", "KEF", "Reykjavik"], ["Tallinn Airport", "TLL", "Tallinn"], ["Riga Airport", "RIX", "Riga"]
+  ['Nnamdi Azikiwe International Airport', 'ABV', 'Abuja'],
+  ['Mallam Aminu Kano International Airport', 'KAN', 'Kano'],
+  ['Port Harcourt International Airport', 'PHC', 'Port Harcourt'],
+  ['Akanu Ibiam International Airport', 'ENU', 'Enugu'],
+  ['Benin Airport', 'BNI', 'Benin City'],
+  ['Ibadan Airport', 'IBA', 'Ibadan'],
+  ['Kaduna Airport', 'KAD', 'Kaduna'],
+  ['Sam Mbakwe Airport', 'QOW', 'Owerri'],
+  ['Margaret Ekpo International Airport', 'CBQ', 'Calabar'],
+  ['Akwa Ibom Airport', 'QUO', 'Uyo'],
+  ['Kotoka International Airport', 'ACC', 'Accra'],
+  ['Félix-Houphouët-Boigny International Airport', 'ABJ', 'Abidjan'],
+  ['Blaise Diagne International Airport', 'DSS', 'Dakar'],
+  ['Bole International Airport', 'ADD', 'Addis Ababa'],
+  ['Kigali International Airport', 'KGL', 'Kigali'],
+  ['Julius Nyerere International Airport', 'DAR', 'Dar es Salaam'],
+  ['Entebbe International Airport', 'EBB', 'Kampala'],
+  ['Kenneth Kaunda International Airport', 'LUN', 'Lusaka'],
+  ['Robert Gabriel Mugabe Airport', 'HRE', 'Harare'],
+  ['Maputo International Airport', 'MPM', 'Maputo'],
+  ['Tunis-Carthage Airport', 'TUN', 'Tunis'],
+  ['Houari Boumediene Airport', 'ALG', 'Algiers'],
+  ['Douala International Airport', 'DLA', 'Douala'],
+  ['Nairobi Wilson Airport', 'WIL', 'Nairobi'],
+  ['Ronald Reagan Washington National Airport', 'DCA', 'Washington'],
+  ['Miami International Airport', 'MIA', 'Miami'],
+  ['Hartsfield-Jackson Atlanta Airport', 'ATL', 'Atlanta'],
+  ['Orlando International Airport', 'MCO', 'Orlando'],
+  ['San Diego International Airport', 'SAN', 'San Diego'],
+  ['Seattle-Tacoma International Airport', 'SEA', 'Seattle'],
+  ['Phoenix Sky Harbor Airport', 'PHX', 'Phoenix'],
+  ['Montréal-Trudeau Airport', 'YUL', 'Montreal'],
+  ['Ottawa International Airport', 'YOW', 'Ottawa'],
+  ['Calgary International Airport', 'YYC', 'Calgary'],
+  ['Cancún International Airport', 'CUN', 'Cancún'],
+  ['Tocumen International Airport', 'PTY', 'Panama City'],
+  ['Brasília International Airport', 'BSB', 'Brasília'],
+  ['Rio de Janeiro Galeão Airport', 'GIG', 'Rio de Janeiro'],
+  ['Recife Airport', 'REC', 'Recife'],
+  ['Santiago International Airport', 'SCL', 'Santiago'],
+  ['Quito International Airport', 'UIO', 'Quito'],
+  ['Karachi Jinnah International Airport', 'KHI', 'Karachi'],
+  ['Allama Iqbal International Airport', 'LHE', 'Lahore'],
+  ['Islamabad International Airport', 'ISB', 'Islamabad'],
+  ['Hazrat Shahjalal International Airport', 'DAC', 'Dhaka'],
+  ['Bandaranaike International Airport', 'CMB', 'Colombo'],
+  ['Tribhuvan International Airport', 'KTM', 'Kathmandu'],
+  ['Tashkent International Airport', 'TAS', 'Tashkent'],
+  ['Heydar Aliyev International Airport', 'GYD', 'Baku'],
+  ['King Khalid International Airport', 'RUH', 'Riyadh'],
+  ['King Abdulaziz International Airport', 'JED', 'Jeddah'],
+  ['Muscat International Airport', 'MCT', 'Muscat'],
+  ['Ben Gurion Airport', 'TLV', 'Tel Aviv'],
+  ['Tan Son Nhat International Airport', 'SGN', 'Ho Chi Minh City'],
+  ['Phnom Penh International Airport', 'PNH', 'Phnom Penh'],
+  ['Yangon International Airport', 'RGN', 'Yangon'],
+  ['Ngurah Rai International Airport', 'DPS', 'Bali'],
+  ['Juanda International Airport', 'SUB', 'Surabaya'],
+  ['Perth Airport', 'PER', 'Perth'],
+  ['Brisbane Airport', 'BNE', 'Brisbane'],
+  ['Adelaide Airport', 'ADL', 'Adelaide'],
+  ['Darwin International Airport', 'DRW', 'Darwin'],
+  ['Christchurch Airport', 'CHC', 'Christchurch'],
+  ['Port Moresby Jacksons Airport', 'POM', 'Port Moresby'],
+  ['Manchester Airport', 'MAN', 'Manchester'],
+  ['Birmingham Airport', 'BHX', 'Birmingham'],
+  ['Bristol Airport', 'BRS', 'Bristol'],
+  ['Nice Côte d’Azur Airport', 'NCE', 'Nice'],
+  ['Lyon-Saint Exupéry Airport', 'LYS', 'Lyon'],
+  ['Milan Malpensa Airport', 'MXP', 'Milan'],
+  ['Naples International Airport', 'NAP', 'Naples'],
+  ['Hamburg Airport', 'HAM', 'Hamburg'],
+  ['Düsseldorf Airport', 'DUS', 'Düsseldorf'],
+  ['Gothenburg Landvetter Airport', 'GOT', 'Gothenburg'],
+  ['Bergen Airport', 'BGO', 'Bergen'],
+  ['Turku Airport', 'TKU', 'Turku'],
+  ['Tampere-Pirkkala Airport', 'TMP', 'Tampere'],
+  ['Vilnius Airport', 'VNO', 'Vilnius'],
+  ['Gdańsk Airport', 'GDN', 'Gdansk'],
+  ['Kraków Airport', 'KRK', 'Krakow'],
+  ['Sofia Airport', 'SOF', 'Sofia'],
+  ['Sarajevo International Airport', 'SJJ', 'Sarajevo'],
+  ['Tirana International Airport', 'TIA', 'Tirana'],
+  ['Larnaca International Airport', 'LCA', 'Larnaca'],
+  ['Malta International Airport', 'MLA', 'Malta'],
+  ['Tenerife South Airport', 'TFS', 'Tenerife'],
+  ['Funchal Airport', 'FNC', 'Funchal'],
+];
+/* Worldwide airport catalogue: OurAirports public-domain CSV, refreshed by the provider.
+   Load passenger-service airports with IATA codes first; include other coded airports as a
+   secondary tier so smaller destinations remain searchable. The page remains usable with
+   the built-in major-airport fallback if the remote catalogue is unavailable. */
+let WORLD_AIRPORTS = [];
+let airportDataReady = false;
+function parseCSVLine(line){
+  const out=[]; let value="", quoted=false;
+  for(let i=0;i<line.length;i++){
+    const c=line[i];
+    if(c==='"' && quoted && line[i+1]==='"'){value+='"';i++;}
+    else if(c==='"') quoted=!quoted;
+    else if(c===','&&!quoted){out.push(value);value="";}
+    else value+=c;
+  }
+  out.push(value); return out;
+}
+async function loadWorldwideAirports(){
+  try{
+    const response=await fetch("https://davidmegginson.github.io/ourairports-data/airports.csv",{cache:"no-cache"});
+    if(!response.ok) throw new Error("Airport dataset unavailable");
+    const csv=await response.text();
+    const lines=csv.split(/\r?\n/); const headers=parseCSVLine(lines.shift());
+    const ix=Object.fromEntries(headers.map((h,i)=>[h,i]));
+    const rows=[];
+    for(const line of lines){
+      if(!line) continue;
+      const r=parseCSVLine(line);
+      const type=r[ix.type], code=(r[ix.iata_code]||"").trim();
+      const name=(r[ix.name]||"").trim(), city=(r[ix.municipality]||"").trim();
+      const lat=Number(r[ix.latitude_deg]), lon=Number(r[ix.longitude_deg]);
+      if(!code || !name || !Number.isFinite(lat)||!Number.isFinite(lon)) continue;
+      if(!["large_airport","medium_airport","small_airport","seaplane_base"].includes(type)) continue;
+      rows.push({name,code,city:city||name,country:r[ix.iso_country]||"",type,scheduled:r[ix.scheduled_service]==="yes",lat,lon,ident:r[ix.ident]||"",icao:r[ix.icao_code]||""});
+    }
+    rows.sort((a,b)=>(Number(b.scheduled)-Number(a.scheduled))||({large_airport:0,medium_airport:1,small_airport:2,seaplane_base:3}[a.type]-({large_airport:0,medium_airport:1,small_airport:2,seaplane_base:3}[b.type]))||a.name.localeCompare(b.name));
+    WORLD_AIRPORTS=rows; airportDataReady=true;
+  }catch(err){console.warn("Using built-in airport suggestions; worldwide catalogue could not load.",err);}
+}
+const airportLoadPromise=loadWorldwideAirports();
+async function timezoneForAirport(a){
+  try{
+    const url=`https://timeapi.io/api/TimeZone/coordinate?latitude=${encodeURIComponent(a.lat)}&longitude=${encodeURIComponent(a.lon)}`;
+    const res=await fetch(url); if(!res.ok) throw new Error("Timezone lookup failed");
+    const data=await res.json();
+    const tz=data.timeZone||data.timezone||data.ianaTimeId;
+    if(tz && tz.includes("/")) return tz;
+  }catch(err){console.warn("Could not resolve airport timezone online",err);}
+  return CITIES[a.city] || CITIES[a.name] || null;
+}
 function setupAutocomplete(inputId, boxId, which){
   const input=$(inputId), box=$(boxId);
   function render(){
-    const q=input.value.trim().toLowerCase();
-    const matches=cityNames.filter(n=>n.toLowerCase().includes(q)).slice(0,12);
-    box.innerHTML="";
-    if(!q || !matches.length){box.hidden=true;return;}
-    matches.forEach(name=>{
-      const b=document.createElement("button");
-      b.type="button"; b.textContent=name+" — "+CITIES[name];
-      b.addEventListener("click",()=>{
-        input.value=name;
-        if(which==="dep") selectedDeparture=name; else selectedArrival=name;
-        box.hidden=true;
-        saveForm();
+    const q=input.value.trim().toLocaleLowerCase(); box.innerHTML="";
+    if(!q){box.hidden=true;return;}
+    const results=[];
+    const add=(item,label,rank)=>{if(!results.some(x=>x.key===item.key))results.push({item,label,rank,key:item.key})};
+    cityNames.forEach(city=>{const low=city.toLocaleLowerCase();if(low.startsWith(q))add({city,key:"city:"+city},city+" · city",0)});
+    const airports=WORLD_AIRPORTS.length?WORLD_AIRPORTS:AIRPORTS.map(([name,code,city])=>({name,code,city,country:"",type:"large_airport",scheduled:true,lat:null,lon:null,key:"legacy:"+code}));
+    let matched=0;
+    for(const a of airports){
+      const hay=[a.name,a.code,a.city,a.country,a.icao,a.ident].join(" ").toLocaleLowerCase();
+      if(!hay.includes(q)) continue;
+      const item={...a,key:"airport:"+a.code+":"+a.name};
+      const location=[a.city,a.country].filter(Boolean).join(", ");
+      add(item,`${a.name} (${a.code}) · ${location||a.city}`,a.scheduled?1:2);
+      if(++matched>=150) break;
+    }
+    cityNames.forEach(city=>{if(city.toLocaleLowerCase().includes(q))add({city,key:"city:"+city},city+" · city",3)});
+    results.sort((a,b)=>a.rank-b.rank||a.label.localeCompare(b.label));
+    results.slice(0,12).forEach(({item,label})=>{
+      const b=document.createElement("button"); b.type="button"; b.textContent=label; b.setAttribute("role","option");
+      b.addEventListener("click",async()=>{
+        const city=item.city || item.name;
+        if(item.key&&item.key.startsWith("airport:")&&item.lat!=null){
+          b.disabled=true; b.textContent=label+" · loading time zone…";
+          const tz=await timezoneForAirport(item);
+          if(!tz){b.disabled=false;b.textContent=label+" · time zone unavailable";return;}
+          CITIES[city]=tz;
+          if(!cityNames.includes(city)){cityNames.push(city);cityNames.sort((a,b)=>a.localeCompare(b));}
+        }
+        input.value=city;
+        if(which==="dep") selectedDeparture=city; else selectedArrival=city;
+        box.hidden=true; input.setAttribute("aria-expanded","false"); saveForm(); input.setCustomValidity("");
       });
       box.appendChild(b);
     });
-    box.hidden=false;
+    box.hidden=!results.length;
   }
-  input.addEventListener("input",()=>{ if(which==="dep")selectedDeparture=null;else selectedArrival=null; render(); });
-  input.addEventListener("focus",render);
-  document.addEventListener("click",e=>{if(!input.parentElement.contains(e.target))box.hidden=true});
+  input.setAttribute("role","combobox"); input.setAttribute("aria-autocomplete","list"); input.setAttribute("aria-expanded","false");
+  input.addEventListener("input",()=>{if(which==="dep")selectedDeparture=null;else selectedArrival=null;render();input.setAttribute("aria-expanded",String(!box.hidden));});
+  input.addEventListener("focus",()=>{if(input.value.trim())render();});
+  box.addEventListener("keydown",e=>{if(e.key==="Escape"){box.hidden=true;input.focus();}});
+  document.addEventListener("click",e=>{if(!input.parentElement.contains(e.target)){box.hidden=true;input.setAttribute("aria-expanded","false");}});
+  input.addEventListener("focus",()=>{airportLoadPromise.then(()=>{if(input.value.trim())render();});});
 }
+
 setupAutocomplete("departureCity","depSuggestions","dep");
 setupAutocomplete("arrivalCity","arrSuggestions","arr");
 
@@ -414,9 +632,35 @@ function fmtTime(d,tz){
 }
 function addDays(d,n){const x=new Date(d);x.setDate(x.getDate()+n);return x}
 
-/* Parse the user's departure wall-clock time in the selected departure timezone.
-   We iteratively correct for the timezone offset, avoiding external libraries. */
+/* Resolve a local wall time to all matching instants. Zero matches means the
+   clock skipped that time during a DST transition; two matches means the
+   clock repeated it. In repeated hours, choose the earlier instant consistently. */
+function wallTimeCandidates(dateStr,timeStr,tz){
+  const [y,mo,da]=dateStr.split("-").map(Number);
+  const [h,mi]=timeStr.split(":").map(Number);
+  const target=Date.UTC(y,mo-1,da,h,mi);
+  const offsets=new Set();
+  for(const delta of [-36,-24,-12,0,12,24,36]){
+    offsets.add(getOffsetMinutes(tz,new Date(target+delta*3600000)));
+  }
+  const wanted=`${dateStr} ${timeStr}`;
+  const candidates=[];
+  for(const offset of offsets){
+    const instant=new Date(target-offset*60000);
+    const parts=new Intl.DateTimeFormat("en-CA",{
+      timeZone:tz,year:"numeric",month:"2-digit",day:"2-digit",
+      hour:"2-digit",minute:"2-digit",hourCycle:"h23"
+    }).formatToParts(instant);
+    const p=Object.fromEntries(parts.filter(x=>x.type!=="literal").map(x=>[x.type,x.value]));
+    const actual=`${p.year}-${p.month}-${p.day} ${p.hour}:${p.minute}`;
+    if(actual===wanted && !candidates.some(d=>d.getTime()===instant.getTime())) candidates.push(instant);
+  }
+  return candidates.sort((a,b)=>a-b);
+}
 function zonedDateTimeToInstant(dateStr,timeStr,tz){
+  const candidates=wallTimeCandidates(dateStr,timeStr,tz);
+  if(candidates.length) return candidates[0];
+  /* Keep a deterministic fallback for callers; form validation rejects skipped times. */
   const [y,mo,da]=dateStr.split("-").map(Number);
   const [h,mi]=timeStr.split(":").map(Number);
   let guess=new Date(Date.UTC(y,mo-1,da,h,mi));
@@ -562,6 +806,10 @@ function downloadICS(data){
 }
 function buildPlan(data,isRet){
   const S={notes:[]};
+  S.notes.push("General guidance only: this schedule is not individualized medical advice. Light timing can shift your body clock differently depending on your current circadian phase, so sunrise/sunset cues are approximate. Do not restrict needed sleep or drive while drowsy; ask a qualified clinician before using melatonin, especially for children, pregnancy, medical conditions, or medicines.");
+  if((isRet&&data.retTimeAmbiguous)||(!isRet&&data.timeAmbiguous)){
+    S.notes.push("The selected local departure time occurs twice because clocks change. This plan uses the earlier occurrence; confirm the intended local time with your itinerary.");
+  }
   const P=isRet?"Return Day ":"Day ";
   const depTZ=CITIES[data.dep], arrTZ=CITIES[data.arr];
   const departure=zonedDateTimeToInstant(data.date,data.time,depTZ);
@@ -624,7 +872,7 @@ function buildPlan(data,isRet){
     if(direction==="east"){
       preEvents.push(event("🛏️","Sleep earlier",shiftedBed,`Aim for bedtime about ${shift} hour${shift===1?"":"s"} earlier than your usual ${data.bed}.`));
       preEvents.push(event("☀️","Prefer earlier daylight",timeFromMinutes((minutesFromTime(shiftedWake)+30)%1440),"Get ordinary outdoor light after waking; avoid deliberately seeking bright late-evening light."));
-      preEvents.push(event("⛔","Do not sleep now","After "+napCutoff,`Avoid a long nap after ${napCutoff} so you can protect the planned ${targetBedtime} bedtime.`, "event-do-not-sleep"));
+      preEvents.push(event("⏸️","Avoid a long nap if safe","After "+napCutoff,`If you can do so safely, avoid a long nap after ${napCutoff} to help protect the planned ${targetBedtime} bedtime. If you are very sleepy, take a short nap and do not drive or do hazardous tasks while drowsy.`, "event-do-not-sleep"));
       preEvents.push(event("☕","Caffeine OK",timeFromMinutes(minutesFromTime(shiftedWake)+60),"If you use caffeine, keep it earlier in the day and stop at least 8 hours before planned bedtime."));
       preEvents.push(event("🚫","Caffeine cut-off",timeFromMinutes(minutesFromTime(shiftedBed)-480),"Avoid caffeine late enough to protect your earlier bedtime."));
     }else{
@@ -648,8 +896,8 @@ function buildPlan(data,isRet){
     travel.push(event("🛏️","Nap / sleep during the flight","Destination night: "+flightWindow.start+"–"+flightWindow.end,
       "If this overlaps your flight, a 4–6 hour sleep period can be considered. Do not force sleep if you are not sleepy."));
   }else{
-    travel.push(event("🛏️","Avoid a long flight sleep","Destination daytime",
-      "If practical, stay awake, use normal light exposure, hydrate, and move periodically rather than taking a long sleep."));
+    travel.push(event("🛏️","Keep flight sleep flexible","Destination daytime",
+      "If practical, avoid planning a long sleep during destination daytime, but rest if you need it. Do not force yourself to stay awake when very sleepy; move periodically when safe and avoid driving or hazardous tasks while drowsy."));
   }
   travel.push(event("💧","Hydrate and move regularly","During flight","Drink normally, stand/walk periodically when safe, and avoid using alcohol as a sleep aid."));
   travel.push(event("☕","Caffeine cut-off","At least 8 h before planned destination sleep","If you use caffeine, stop early enough to protect the sleep period you are targeting."));
@@ -671,11 +919,11 @@ function buildPlan(data,isRet){
     arrivalEvents.push(event("☀️","Seek destination morning/daylight", "Morning–late morning", "Prefer outdoor light earlier in the destination day. The exact ideal light window depends on your existing circadian phase, so this is a general planning cue."));
     arrivalEvents.push(event("🕶️","Reduce bright late-evening light","Last 2–3 h before bed","Keep the evening dimmer and avoid deliberately seeking strong outdoor light late at night."));
     }
-    arrivalEvents.push(event("⛔","Do not sleep now","After "+napCutoff+" local time",`Avoid a long nap after ${napCutoff} so you can stay awake until the planned local bedtime.`, "event-do-not-sleep"));
+    arrivalEvents.push(event("⏸️","Avoid a long nap if safe","After "+napCutoff+" local time",`If you can do so safely, avoid a long nap after ${napCutoff} to help stay awake until the planned local bedtime. If you are very sleepy, take a short nap and do not drive or do hazardous tasks while drowsy.`, "event-do-not-sleep"));
   }else{
     arrivalEvents.push(event("🕶️","Keep very early light modest","Early morning","If practical, avoid deliberately seeking very bright light immediately after waking while adapting westward."));
     arrivalEvents.push(event("☀️","Seek later-day outdoor light",(sun&&sun.set?"Before sunset ("+sun.set+")":"Late afternoon / early evening"),"A walk outdoors later in the local day can support a delayed schedule."));
-    arrivalEvents.push(event("⛔","Do not sleep now","Until "+timeFromMinutes((homeWake+180)%1440)+" local time","Avoid a long early nap if you can safely stay awake until the calculated adaptation window ends.", "event-do-not-sleep"));
+    arrivalEvents.push(event("⏸️","Avoid a long nap if safe","Until "+timeFromMinutes((homeWake+180)%1440)+" local time","If you can do so safely, avoid a long early nap during this adaptation window. If you are very sleepy, take a short nap and do not drive or do hazardous tasks while drowsy.", "event-do-not-sleep"));
   }
   if(sun&&sun.polar)arrivalEvents.push(event("☀️","No sunrise/sunset","All day","No sunrise/sunset at this location on this date. Follow general light cues."));
   if(aH>=6&&aH<12&&(hH>=18||hH<6))arrivalEvents.push(event("⚠️","Sleepy on arrival","On arrival","⚠️ You may feel sleepy on arrival. Try to stay awake until local evening. A short nap (20 min) is fine if needed."));
@@ -807,15 +1055,26 @@ $("planner").addEventListener("submit",e=>{
   const depName=selectedDeparture || Object.keys(CITIES).find(x=>x.toLowerCase()===$("departureCity").value.trim().toLowerCase());
   const arrName=selectedArrival || Object.keys(CITIES).find(x=>x.toLowerCase()===$("arrivalCity").value.trim().toLowerCase());
   const fh=Number($("flightHours").value), fm=Number($("flightMinutes").value);
-  if(!depName||!arrName){error.textContent="Please select both cities from the autocomplete suggestions.";error.style.display="block";return}
+  if(!depName || !arrName){error.textContent="Choose a suggested city or airport from the dropdown for both departure and arrival.";error.style.display="block";return}
   if(depName===arrName){error.textContent="Departure and arrival cities are the same. Choose different cities or use the local schedule from your main calculator.";error.style.display="block";return}
+  if(!$("departureDate").value || $("departureDate").value < localDateInput()){error.textContent="Choose today or a future departure date.";error.style.display="block";return}
+  if(fh===0 && fm===0){error.textContent="Enter a flight duration greater than zero.";error.style.display="block";return}
   if(!Number.isFinite(fh)||!Number.isFinite(fm)||fh<0||fm<0||fm>59||(fh*60+fm)<30){error.textContent="Enter a valid flight duration of at least 30 minutes.";error.style.display="block";return}
-  const data={dep:depName,arr:arrName,date:$("departureDate").value,time:$("departureTime").value,flightH:fh,flightM:fm,bed:$("bedtime").value,wake:$("waketime").value,
-    chrono:document.querySelector('input[name=chrono]:checked').value,age:Number($("age").value)||0,trip:Number($("tripLen").value)||0,med:$("medFlag").checked};
+  const depDate=$("departureDate").value, depTime=$("departureTime").value;
+  const depCandidates=wallTimeCandidates(depDate,depTime,CITIES[depName]);
+  if(!depCandidates.length){error.textContent="That departure time does not exist in the selected time zone because the clocks change. Choose a different local time.";error.style.display="block";return}
+  const data={dep:depName,arr:arrName,date:depDate,time:depTime,flightH:fh,flightM:fm,bed:$("bedtime").value,wake:$("waketime").value,
+    chrono:document.querySelector('input[name=chrono]:checked').value,age:Number($("age").value)||0,trip:Number($("tripLen").value)||0,med:$("medFlag").checked,
+    timeAmbiguous:depCandidates.length>1};
   if($("planReturn").checked){
     const rh=Number($("retH").value),rm=Number($("retM").value);
     if(!$("retDate").value||!$("retTime").value||!Number.isFinite(rh)||!Number.isFinite(rm)||rh<0||rm<0||rm>59||(rh*60+rm)<30){error.textContent="Enter a valid return date, time and flight duration (at least 30 minutes).";error.style.display="block";return}
+    const retCandidates=wallTimeCandidates($("retDate").value,$("retTime").value,CITIES[arrName]);
+    if(!retCandidates.length){error.textContent="That return departure time does not exist in the destination time zone because the clocks change. Choose a different local time.";error.style.display="block";return}
+    const outboundArrival=new Date(depCandidates[0].getTime()+(fh*60+fm)*60000);
+    if(retCandidates[0].getTime()<=outboundArrival.getTime()){error.textContent="The return departure must be after your outbound flight arrives. Check the return date and local time.";error.style.display="block";return}
     data.ret={date:$("retDate").value,time:$("retTime").value,h:rh,m:rm};
+    data.retTimeAmbiguous=retCandidates.length>1;
   }
   generatePlan(data);
 });
@@ -864,6 +1123,7 @@ if(!new URLSearchParams(location.search).get("dep"))loadForm(); /* share links t
   if(q.get("rd")){$("planReturn").checked=true;$("planReturn").dispatchEvent(new Event("change"));set("retDate",q.get("rd"));set("retTime",q.get("rt"));set("retH",q.get("rh"));set("retM",q.get("rm"));}
   $("planner").requestSubmit();
 })();
+
 </script>
 </body>
 </html>

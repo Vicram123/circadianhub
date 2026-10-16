@@ -78,6 +78,23 @@ p{margin:0 0 12px}ul{margin:0 0 12px;padding-left:20px}li{margin-bottom:4px}
 table.t{width:100%;border-collapse:collapse;margin:12px 0 16px;font-size:.95rem}.t th,.t td{border-bottom:1px solid var(--border);padding:8px;text-align:left}
 .disc{border-top:1px solid var(--border);margin-top:28px;padding-top:14px;color:var(--muted);font-size:.9rem}
 </style>
+
+<style>
+.author-profile{display:flex;align-items:center;gap:18px;margin:22px 0;padding:18px;border:1px solid var(--border);border-radius:14px;background:var(--card)}.author-profile img{width:112px;height:112px;object-fit:cover;object-position:center 28%;border-radius:50%;flex:0 0 auto}.author-profile p{margin:5px 0}.author-profile h2{margin:0;font-size:1.15rem}@media(max-width:480px){.author-profile{align-items:flex-start;gap:12px;padding:14px}.author-profile img{width:84px;height:84px}}
+</style>
+<style id="circadianhub-full-width-refresh">
+/* CircadianHub full-width WordPress-inspired layout refresh */
+:root{--site-max:1440px}
+html{width:100%;min-height:100%}
+body{width:100%;max-width:none;margin:0;padding:0}
+header,nav,footer,.site-header,.site-nav,.site-footer,.header,.footer{width:100%;max-width:none}
+main,.main,.content,.page-content,.site-content,.container,.wrap,.wrapper{width:100%;max-width:var(--site-max);margin-left:auto;margin-right:auto}
+.card,.article-card,.tool-card,.panel{max-width:min(1200px, calc(100% - 40px));margin-left:auto;margin-right:auto}
+article{width:100%;max-width:100%;}
+img,svg,video{max-width:100%;height:auto}
+@media(min-width:1200px){body{padding-left:0;padding-right:0}.site,.site-header,.site-footer{max-width:var(--site-max);margin-left:auto;margin-right:auto}.card{padding:clamp(24px,3vw,48px)}}
+@media(max-width:700px){.card,.article-card,.tool-card,.panel{max-width:calc(100% - 24px);padding:18px}body{padding-left:0;padding-right:0}}
+</style>
 </head>
 <body>
 <header class="site"><a href="/" class="ch-logo-link" aria-label="CircadianHub Homepage">
@@ -90,6 +107,7 @@ table.t{width:100%;border-collapse:collapse;margin:12px 0 16px;font-size:.95rem}
 <main class="card prose"><div class="top"><a class="back" href="index.html">&larr; Back to calculator</a><div class="sws" role="group" aria-label="Color theme"><button type="button" class="sw" data-theme="light" aria-label="Light theme" aria-pressed="false" title="Light">☀</button><button type="button" class="sw" data-theme="dark" aria-label="Dark theme" aria-pressed="false" title="Dark">◐</button><button type="button" class="sw" data-theme="sepia" aria-label="Sepia theme" aria-pressed="false" title="Sepia">◑</button><button type="button" class="sw" data-theme="midnight" aria-label="Midnight theme" aria-pressed="false" title="Midnight">✦</button><button type="button" class="sw" data-theme="forest" aria-label="Forest theme" aria-pressed="false" title="Forest">●</button></div></div>
 <article>
 <h1>About CircadianHub: How the Sleep Calculators Work</h1>
+ <section class="author-profile" aria-label="About the author"><img src="images/tata-shanvic.webp" width="112" height="112" alt="Portrait of Tata Shanvic, CircadianHub author" loading="lazy"><div><h2>Tata Shanvic</h2><p><strong>Author, CircadianHub</strong></p><p>I create practical sleep-planning guides and tools to help readers think through sleep timing, shift work, and travel. The tools are educational aids, not medical advice.</p></div></section>
 <p>CircadianHub is a free set of sleep planning tools and guides. This page explains what the site does and its limits.</p>
 <h2>What the tools do</h2>
 <p>The CircadianHub works out bedtimes or wake-up times based on sleep cycles of roughly 90 minutes, with an allowance for the time it takes to fall asleep. The Jet Lag Planner builds a simple adjustment schedule for time zone changes. Both are planning aids, not diagnostic tools.</p>

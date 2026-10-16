@@ -1,0 +1,1 @@
+Airport autocomplete includes an expanded curated list of international and regional airports. It is not a complete live/global airport database; suggestions map to city time zones and do not represent flight routing. Review airport codes and time zones before production use.

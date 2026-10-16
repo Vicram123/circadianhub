@@ -1,0 +1,21 @@
+CircadianHub pre-review update notes
+====================================
+
+Changes in this package
+- Expanded contact page with a five-business-day target response time, clear enquiry categories, and privacy-conscious guidance.
+- Added sleep-debt-calculator.html with validated inputs and downloadable text summary.
+- Added sleep-schedule-checklist.html by Tata Shanvic. This is transparently described as an editorial framework, not fabricated personal clinical experience.
+- Added internal links and sitemap entries for both new pages.
+- The homepage already contains a theme switcher in this source package.
+
+IMPORTANT: Google-certified consent management (EEA/Finland)
+------------------------------------------------------------
+A static website package cannot activate a Google-certified CMP on your AdSense account. Before serving ads to EEA visitors, sign in to AdSense and go to Privacy & messaging, create/configure the relevant European regulations message using Google's certified CMP, and install the exact generated code on the site. Do not leave the custom placeholder consent banner as the production consent solution, and do not load advertising scripts before consent where consent is required. Test accept, reject, and reopening settings on a deployed site.
+
+Before requesting review
+- Review the nine thin articles and add accurate, genuinely original detail to each; do not publish filler just to increase word count.
+- Replace the sleep-schedule feature image with an authentic, appropriately licensed image if available. Do not present generated/stock people as the author or imply they are real personal photographs.
+- Verify all contact details, response promise, privacy and terms against actual operations.
+- Check all pages on mobile and run accessibility/contrast checks.
+- Validate JSON-LD, canonical URLs, sitemap, robots.txt and indexing in Search Console after deployment.
+- AdSense approval is not guaranteed by these changes.
